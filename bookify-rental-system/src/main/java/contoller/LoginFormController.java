@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 public class LoginFormController implements Initializable {
 
     @FXML
-    private JFXComboBox<?> cmbRole;
+    private JFXComboBox<String> cmbRole;
 
     @FXML
     private JFXPasswordField txtPassword;
@@ -23,7 +23,7 @@ public class LoginFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+        cmbRole.getItems().addAll("Admin","Staff");
 
     }
 }
