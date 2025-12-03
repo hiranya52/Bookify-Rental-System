@@ -21,12 +21,12 @@
                   <Font name="Apple LiGothic Medium" size="34.0" />
                </font>
             </Label>
-            <Label layoutX="39.0" layoutY="166.0" text="Dashboard" textFill="#e83c75">
+            <Label layoutX="39.0" layoutY="166.0" onKeyPressed="#txtDashboardOnAction" text="Dashboard" textFill="#e83c75">
                <font>
                   <Font name="Apple LiGothic Medium" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="39.0" layoutY="236.0" text="Books" textFill="WHITE">
+            <Label layoutX="39.0" layoutY="236.0" onKeyPressed="#txtBooksOnAction" text="Books" textFill="WHITE">
                <font>
                   <Font name="Apple LiGothic Medium" size="28.0" />
                </font>

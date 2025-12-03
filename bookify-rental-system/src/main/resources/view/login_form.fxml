@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="785.0" prefWidth="1160.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contoller.LoginFormController">
    <children>
       <ImageView fitHeight="785.0" fitWidth="580.0">
@@ -31,7 +30,7 @@
       <JFXTextField fx:id="txtUsername" focusColor="#212845" layoutX="713.0" layoutY="358.0" prefHeight="32.0" prefWidth="320.0" promptText="Username" />
       <JFXPasswordField fx:id="txtPassword" focusColor="#212845" layoutX="709.0" layoutY="443.0" prefHeight="32.0" prefWidth="320.0" promptText="Password" />
       <JFXComboBox fx:id="cmbRole" focusColor="#212845" layoutX="711.0" layoutY="531.0" prefHeight="32.0" prefWidth="320.0" promptText="Role" />
-      <JFXButton layoutX="722.0" layoutY="610.0" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #E83C75;" text="Log In" textFill="WHITE">
+      <JFXButton layoutX="722.0" layoutY="610.0" onAction="#btnLogInOnAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #E83C75;" text="Log In" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
