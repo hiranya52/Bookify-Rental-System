@@ -46,6 +46,19 @@ public class LoginFormController implements Initializable {
                     throw new RuntimeException(e);
                 }
             }
+        }else if (role.equals("Staff")){
+            if (username.equals("Staff") && password.equals("Staff123")){
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/staff_dashboard.fxml"));
+                    Scene scene = new Scene(loader.load());
+
+                    Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+                    stage.setScene(scene);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
 
     }
