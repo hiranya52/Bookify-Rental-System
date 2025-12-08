@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="785.0" prefWidth="1160.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contoller.BooksController">
+    <children>
+        <AnchorPane prefHeight="785.0" prefWidth="273.0" style="-fx-background-color: #212845;">
+            <children>
+                <ImageView fitHeight="64.0" fitWidth="70.0" layoutX="11.0" layoutY="50.0">
+                    <image>
+                        <Image url="@../img/Bookify%20Reental%20Logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="86.0" layoutY="72.0" text="Bookify Rental" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="34.0" />
+                    </font>
+                </Label>
+                <Label layoutX="39.0" layoutY="166.0" onKeyPressed="#txtDashboardOnAction" text="Dashboard" textFill="#e83c75">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="39.0" layoutY="236.0" onMouseClicked="#txtBooksOnAction" text="Books" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="41.0" layoutY="307.0" text="Customers" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="41.0" layoutY="373.0" text="Rentals" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="41.0" layoutY="442.0" text="Returns" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="43.0" layoutY="510.0" text="Reports" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="43.0" layoutY="576.0" text="User Management" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="101.0" layoutY="648.0" text="Administrator" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="100.0" layoutY="683.0" text="Admin" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="22.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="41.0" layoutY="651.0">
+                    <image>
+                        <Image url="@../img/Profile.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <Label layoutX="341.0" layoutY="94.0" text="Books" textFill="#212845">
+            <font>
+                <Font name="Apple LiGothic Medium" size="36.0" />
+            </font>
+        </Label>
+        <Label layoutX="939.0" layoutY="109.0" text="Home/Dashboard" textFill="#212845">
+            <font>
+                <Font name="Apple LiGothic Medium" size="20.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="329.0" layoutY="166.0" prefHeight="538.0" prefWidth="474.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css" />
+      <AnchorPane layoutX="841.0" layoutY="164.0" prefHeight="538.0" prefWidth="258.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+         <children>
+            <Label layoutX="22.0" layoutY="23.0" text="Book Details" textFill="#212845">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>

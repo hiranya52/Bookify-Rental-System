@@ -1,33 +1,60 @@
 package contoller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.scene.control.Label;
 
 public class AdminDashboardController {
 
     @FXML
-    void txtBooksOnAction(KeyEvent event) {
-        try {
-            // Load dashboard
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login_form.fxml"));
-            Scene scene = new Scene(loader.load());
+    private Label txtActiveRentals;
 
-            // Get current stage from event source
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+    @FXML
+    private Label txtOverdueRentals;
 
-            stage.setScene(scene);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    @FXML
+    private Label txtTotalBooks;
+
+    @FXML
+    private Label txtTotalCustomers;
+
+    @FXML
+    void btnBooksOnAction(ActionEvent event) {
+
     }
 
     @FXML
-    void txtDashboardOnAction(KeyEvent event) {
+    void btnCustomersOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnDashboardOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnLogOutOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnRentalsOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnReportsOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnReturnsOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnUserManagementOnAction(ActionEvent event) {
 
     }
 

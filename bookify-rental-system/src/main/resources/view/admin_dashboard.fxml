@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -21,56 +22,61 @@
                   <Font name="Apple LiGothic Medium" size="34.0" />
                </font>
             </Label>
-            <Label layoutX="39.0" layoutY="166.0" onKeyPressed="#txtDashboardOnAction" text="Dashboard" textFill="#e83c75">
+            <Label layoutX="101.0" layoutY="617.0" text="Administrator" textFill="WHITE">
                <font>
                   <Font name="Apple LiGothic Medium" size="28.0" />
                </font>
             </Label>
-            <Label layoutX="39.0" layoutY="236.0" onKeyPressed="#txtBooksOnAction" text="Books" textFill="WHITE">
-               <font>
-                  <Font name="Apple LiGothic Medium" size="28.0" />
-               </font>
-            </Label>
-            <Label layoutX="41.0" layoutY="307.0" text="Customers" textFill="WHITE">
-               <font>
-                  <Font name="Apple LiGothic Medium" size="28.0" />
-               </font>
-            </Label>
-            <Label layoutX="41.0" layoutY="373.0" text="Rentals" textFill="WHITE">
-               <font>
-                  <Font name="Apple LiGothic Medium" size="28.0" />
-               </font>
-            </Label>
-            <Label layoutX="41.0" layoutY="442.0" text="Returns" textFill="WHITE">
-               <font>
-                  <Font name="Apple LiGothic Medium" size="28.0" />
-               </font>
-            </Label>
-            <Label layoutX="43.0" layoutY="510.0" text="Reports" textFill="WHITE">
-               <font>
-                  <Font name="Apple LiGothic Medium" size="28.0" />
-               </font>
-            </Label>
-            <Label layoutX="43.0" layoutY="576.0" text="User Management" textFill="WHITE">
-               <font>
-                  <Font name="Apple LiGothic Medium" size="28.0" />
-               </font>
-            </Label>
-            <Label layoutX="101.0" layoutY="648.0" text="Administrator" textFill="WHITE">
-               <font>
-                  <Font name="Apple LiGothic Medium" size="28.0" />
-               </font>
-            </Label>
-            <Label layoutX="100.0" layoutY="683.0" text="Admin" textFill="WHITE">
+            <Label layoutX="100.0" layoutY="652.0" text="Admin" textFill="WHITE">
                <font>
                   <Font name="Apple LiGothic Medium" size="22.0" />
                </font>
             </Label>
-            <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="41.0" layoutY="651.0">
+            <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="41.0" layoutY="620.0">
                <image>
                   <Image url="@../img/Profile.png" />
                </image>
             </ImageView>
+            <JFXButton alignment="BASELINE_LEFT" layoutY="400.0" onAction="#btnReturnsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Returns" textFill="WHITE">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="28.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="467.0" onAction="#btnReportsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Reports" textFill="WHITE">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="28.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutY="334.0" onAction="#btnRentalsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Rentals" textFill="WHITE">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="28.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutY="268.0" onAction="#btnCustomersOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Customers" textFill="WHITE">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="28.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutY="202.0" onAction="#btnBooksOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Books" textFill="WHITE">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="28.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutY="136.0" onAction="#btnDashboardOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Dashboard" textFill="#e83c75">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="28.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutY="533.0" onAction="#btnUserManagementOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="User Management" textFill="WHITE">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="28.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutY="682.0" onAction="#btnLogOutOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="    Log Out" textFill="WHITE">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="24.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="330.0" layoutY="170.0" prefHeight="110.0" prefWidth="170.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
@@ -80,7 +86,7 @@
                   <Font name="Apple LiGothic Medium" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="110.0" layoutY="48.0" text="0" textFill="#e83c75">
+            <Label fx:id="txtTotalBooks" layoutX="110.0" layoutY="48.0" text="0" textFill="#e83c75">
                <font>
                   <Font name="Apple LiGothic Medium" size="30.0" />
                </font>
@@ -103,7 +109,7 @@
                   <Image url="@../img/Total%20Customers.png" />
                </image>
             </ImageView>
-            <Label layoutX="109.0" layoutY="50.0" text="0" textFill="#e83c75">
+            <Label fx:id="txtTotalCustomers" layoutX="109.0" layoutY="50.0" text="0" textFill="#e83c75">
                <font>
                   <Font name="Apple LiGothic Medium" size="30.0" />
                </font>
@@ -121,7 +127,7 @@
                   <Image url="@../img/Active%20Rentals.png" />
                </image>
             </ImageView>
-            <Label layoutX="108.0" layoutY="49.0" text="0" textFill="#e83c75">
+            <Label fx:id="txtActiveRentals" layoutX="108.0" layoutY="49.0" text="0" textFill="#e83c75">
                <font>
                   <Font name="Apple LiGothic Medium" size="30.0" />
                </font>
@@ -140,7 +146,7 @@
                   <Image url="@../img/Overdue%20Rentals.png" />
                </image>
             </ImageView>
-            <Label layoutX="104.0" layoutY="49.0" text="0" textFill="#e83c75">
+            <Label fx:id="txtOverdueRentals" layoutX="104.0" layoutY="49.0" text="0" textFill="#e83c75">
                <font>
                   <Font name="Apple LiGothic Medium" size="30.0" />
                </font>
