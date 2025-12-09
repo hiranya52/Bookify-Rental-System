@@ -3,10 +3,9 @@ package repository;
 import db.DBConnection;
 import model.entity.Customer;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerRepository {
 
@@ -26,6 +25,35 @@ public class CustomerRepository {
         }
 
         return lastId;
+    }
+
+
+    public List<Customer> getAllCustomers() throws SQLException {
+
+        List<Customer> customerList = new ArrayList();
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "Select * From Customers";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+
+            customerList.add(
+                    new Customer(
+                            resultSet.getString("customer_id"),
+                            resultSet.getString("name"),
+                            resultSet.getString("phone"),
+                            resultSet.getString("email")
+                    )
+            );
+
+        }
+
+        return customerList;
+
     }
 
 

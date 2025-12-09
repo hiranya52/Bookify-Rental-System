@@ -5,6 +5,8 @@ import model.entity.Customer;
 import repository.CustomerRepository;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerService {
 
@@ -18,6 +20,35 @@ public class CustomerService {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    public List<CustomerDTO> getAllCustomers(){
+
+        List<CustomerDTO> customerDTOS = new ArrayList<>();
+
+        try {
+
+            List<Customer> customerList = customerRepository.getAllCustomers();
+
+            for(Customer customer : customerList){
+
+                customerDTOS.add(
+                        new CustomerDTO(
+                                customer.getId(),
+                                customer.getName(),
+                                customer.getPhoneNo(),
+                                customer.getEmail()
+                        )
+                );
+
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return customerDTOS;
 
     }
 

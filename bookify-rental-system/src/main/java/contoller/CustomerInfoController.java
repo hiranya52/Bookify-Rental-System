@@ -101,6 +101,8 @@ public class CustomerInfoController implements Initializable {
 
     }
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -113,6 +115,9 @@ public class CustomerInfoController implements Initializable {
         String newId = String.format("C%03d", numericPart);
 
         lblCusID.setText(newId);
+
+
+
 
     }
 }
