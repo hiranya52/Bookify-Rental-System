@@ -5,43 +5,57 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import model.dto.CustomerDTO;
+import service.CustomerService;
 
 public class CustomerInfoController {
 
-    @FXML
-    private TableColumn<String, String> ColContactNo;
+    CustomerService customerService = new CustomerService();
 
     @FXML
-    private TableColumn<String, String> colCusID;
+    private TableColumn<?, ?> ColContactNo;
 
     @FXML
-    private JFXTextField colEmail;
+    private TableColumn<?, ?> colCusID;
 
     @FXML
-    private TableColumn<String, String> colEmail1;
+    private TableColumn<?, ?> colEmail;
 
     @FXML
-    private TableColumn<String, String> colName;
+    private TableColumn<?, ?> colName;
 
     @FXML
     private Label lblAdministrator;
 
     @FXML
-    private JFXTextField txtContactNo;
+    private Label lblCusID;
 
     @FXML
-    private Label txtCusID;
+    private Label lblDate;
 
     @FXML
-    private Label txtDate;
+    private JFXTextField txtEmail;
 
     @FXML
     private JFXTextField txtName;
 
     @FXML
+    private JFXTextField txtPhoneNo;
+
+    @FXML
     void btnAddCusOnAction(ActionEvent event) {
 
+        String cusId = lblCusID.getText();
+        String name = txtName.getText();
+        String phoneNo = txtPhoneNo.getText();
+        String email = txtEmail.getText();
+
+        CustomerDTO customerDTO = new CustomerDTO(cusId,name,phoneNo,email);
+
+        customerService.addCustomer(customerDTO);
+
     }
+
 
     @FXML
     void btnBooksOnAction(ActionEvent event) {

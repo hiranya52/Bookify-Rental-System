@@ -98,7 +98,7 @@
                   <TableColumn fx:id="colCusID" prefWidth="70.17218017578125" style="-fx-border-color: #212845; -fx-border-width: 1;" text="ID" />
                   <TableColumn fx:id="colName" prefWidth="147.82781982421875" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Name" />
                   <TableColumn fx:id="ColContactNo" prefWidth="106.0166015625" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Contact No." />
-                  <TableColumn fx:id="colEmail1" prefWidth="153.430419921875" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Email" />
+                  <TableColumn fx:id="colEmail" prefWidth="153.430419921875" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Email" />
                </columns>
             </TableView>
          </children>
@@ -120,7 +120,7 @@
                   <Font name="Apple LiGothic Medium" size="22.0" />
                </font>
             </Label>
-            <Label fx:id="txtDate" layoutX="89.0" layoutY="89.0" text="2025-12-10" textFill="#212845">
+            <Label fx:id="lblDate" layoutX="89.0" layoutY="89.0" text="2025-12-10" textFill="#212845">
                <font>
                   <Font name="Apple LiGothic Medium" size="18.0" />
                </font>
@@ -131,14 +131,14 @@
                </font>
             </Label>
             <JFXTextField fx:id="txtName" layoutX="33.0" layoutY="204.0" prefHeight="30.0" prefWidth="200.0" promptText="     Name" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-            <JFXTextField fx:id="txtContactNo" layoutX="34.0" layoutY="275.0" prefHeight="30.0" prefWidth="200.0" promptText="     Contact Number" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-            <JFXTextField fx:id="colEmail" layoutX="34.0" layoutY="344.0" prefHeight="30.0" prefWidth="200.0" promptText="     Email" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="txtPhoneNo" layoutX="34.0" layoutY="275.0" prefHeight="30.0" prefWidth="200.0" promptText="     Phone Number" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="txtEmail" layoutX="34.0" layoutY="344.0" prefHeight="30.0" prefWidth="200.0" promptText="     Email" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
             <JFXButton layoutX="80.0" layoutY="413.0" onAction="#btnAddCusOnAction" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #212845;" text="Add Customer" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <Label fx:id="txtCusID" layoutX="133.0" layoutY="125.0" text="C001" textFill="#2679ff">
+            <Label fx:id="lblCusID" layoutX="133.0" layoutY="125.0" text="C001" textFill="#2679ff">
                <font>
                   <Font name="Apple LiGothic Medium" size="18.0" />
                </font>
