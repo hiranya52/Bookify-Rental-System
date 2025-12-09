@@ -4,6 +4,8 @@ import model.dto.CustomerDTO;
 import model.entity.Customer;
 import repository.CustomerRepository;
 
+import java.sql.SQLException;
+
 public class CustomerService {
 
     CustomerRepository customerRepository = new CustomerRepository();
@@ -17,7 +19,11 @@ public class CustomerService {
                 customerDTO.getEmail()
         );
 
-        customerRepository.addCustomer(customer);
+        try {
+            customerRepository.addCustomer(customer);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
