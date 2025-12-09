@@ -10,6 +10,18 @@ public class CustomerService {
 
     CustomerRepository customerRepository = new CustomerRepository();
 
+
+    public String getLastCustomerId(){
+
+        try {
+            return customerRepository.getLastCustomerId();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
     public void addCustomer(CustomerDTO customerDTO) {
 
         Customer customer = new Customer(

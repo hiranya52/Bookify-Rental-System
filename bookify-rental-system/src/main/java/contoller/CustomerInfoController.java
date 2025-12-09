@@ -3,12 +3,16 @@ package contoller;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import model.dto.CustomerDTO;
 import service.CustomerService;
 
-public class CustomerInfoController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class CustomerInfoController implements Initializable {
 
     CustomerService customerService = new CustomerService();
 
@@ -97,4 +101,18 @@ public class CustomerInfoController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        String lastCusId = customerService.getLastCustomerId();
+
+        int numericPart = Integer.parseInt(lastCusId.substring(1));
+
+        numericPart++;
+
+        String newId = String.format("C%03d", numericPart);
+
+        lblCusID.setText(newId);
+
+    }
 }
