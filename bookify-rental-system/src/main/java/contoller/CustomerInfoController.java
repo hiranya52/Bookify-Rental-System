@@ -9,16 +9,19 @@ import javafx.scene.control.TableColumn;
 public class CustomerInfoController {
 
     @FXML
-    private TableColumn<?, ?> ColContactNo;
+    private TableColumn<String, String> ColContactNo;
 
     @FXML
-    private TableColumn<?, ?> colCusID;
+    private TableColumn<String, String> colCusID;
 
     @FXML
     private JFXTextField colEmail;
 
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn<String, String> colEmail1;
+
+    @FXML
+    private TableColumn<String, String> colName;
 
     @FXML
     private Label lblAdministrator;
