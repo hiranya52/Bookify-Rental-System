@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class Customer {
 
-    private String Id;
+    private String id;
     private String name;
     private String phoneNo;
     private String email;

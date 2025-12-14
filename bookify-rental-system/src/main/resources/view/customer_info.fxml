@@ -93,11 +93,11 @@
         </Label>
         <AnchorPane layoutX="313.0" layoutY="158.0" prefHeight="570.0" prefWidth="518.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
          <children>
-            <TableView layoutX="21.0" layoutY="19.0" prefHeight="529.0" prefWidth="477.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
+            <TableView fx:id="tblCustomerDetails" layoutX="21.0" layoutY="19.0" prefHeight="529.0" prefWidth="477.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
                <columns>
                   <TableColumn fx:id="colCusID" prefWidth="70.17218017578125" style="-fx-border-color: #212845; -fx-border-width: 1;" text="ID" />
                   <TableColumn fx:id="colName" prefWidth="147.82781982421875" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Name" />
-                  <TableColumn fx:id="ColContactNo" prefWidth="106.0166015625" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Contact No." />
+                  <TableColumn fx:id="colContactNo" prefWidth="106.0166015625" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Contact No." />
                   <TableColumn fx:id="colEmail" prefWidth="153.430419921875" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Email" />
                </columns>
             </TableView>

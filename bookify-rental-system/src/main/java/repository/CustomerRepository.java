@@ -29,31 +29,24 @@ public class CustomerRepository {
 
 
     public List<Customer> getAllCustomers() throws SQLException {
+        List<Customer> customerList = new ArrayList<>();
 
-        List<Customer> customerList = new ArrayList();
+        String SQL = "SELECT * FROM Customers";
 
-        Connection connection = DBConnection.getInstance().getConnection();
-        String SQL = "Select * From Customers";
+        try (Connection connection = DBConnection.getInstance().getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
 
-        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-
-        ResultSet resultSet = preparedStatement.executeQuery();
-
-        while (resultSet.next()){
-
-            customerList.add(
-                    new Customer(
-                            resultSet.getString("customer_id"),
-                            resultSet.getString("name"),
-                            resultSet.getString("phone"),
-                            resultSet.getString("email")
-                    )
-            );
-
+            while (resultSet.next()) {
+                customerList.add(new Customer(
+                        resultSet.getString("customer_id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("phone"),
+                        resultSet.getString("email")
+                ));
+            }
         }
-
         return customerList;
-
     }
 
 

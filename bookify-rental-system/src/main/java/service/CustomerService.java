@@ -23,12 +23,11 @@ public class CustomerService {
 
     }
 
-    public List<CustomerDTO> getAllCustomers(){
+    public ArrayList<CustomerDTO> getAllCustomers(){
 
-        List<CustomerDTO> customerDTOS = new ArrayList<>();
+        ArrayList<CustomerDTO> customerDTOS = new ArrayList<>();
 
         try {
-
             List<Customer> customerList = customerRepository.getAllCustomers();
 
             for(Customer customer : customerList){
