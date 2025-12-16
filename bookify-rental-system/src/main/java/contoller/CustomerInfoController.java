@@ -24,16 +24,16 @@ public class CustomerInfoController implements Initializable {
     CustomerService customerService = new CustomerService();
 
     @FXML
-    private TableColumn<?, ?> colContactNo;
+    private TableColumn<CustomerDTO, String> colContactNo;
 
     @FXML
-    private TableColumn<?, ?> colCusID;
+    private TableColumn<CustomerDTO, String> colCusID;
 
     @FXML
-    private TableColumn<?, ?> colEmail;
+    private TableColumn<CustomerDTO, String> colEmail;
 
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableColumn<CustomerDTO, String> colName;
 
     @FXML
     private Label lblAdministrator;
@@ -66,6 +66,8 @@ public class CustomerInfoController implements Initializable {
         CustomerDTO customerDTO = new CustomerDTO(cusId,name,phoneNo,email);
 
         customerService.addCustomer(customerDTO);
+
+        setNewID();
 
     }
 
@@ -115,15 +117,22 @@ public class CustomerInfoController implements Initializable {
         tblCustomerDetails.setItems(customerDTOS);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    public void setNewID(){
         //----------------Set New ID----------------//
         String lastCusId = customerService.getLastCustomerId();
+        if (lastCusId == null){
+            lastCusId = "C000";
+        }
         int numericPart = Integer.parseInt(lastCusId.substring(1));
         numericPart++;
         String newId = String.format("C%03d", numericPart);
         lblCusID.setText(newId);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        setNewID();
 
         colCusID.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));

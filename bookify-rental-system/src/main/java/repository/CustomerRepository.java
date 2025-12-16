@@ -31,11 +31,11 @@ public class CustomerRepository {
     public List<Customer> getAllCustomers() throws SQLException {
         List<Customer> customerList = new ArrayList<>();
 
-        String SQL = "SELECT * FROM Customers";
+            Connection connection = DBConnection.getInstance().getConnection();
+            String SQL = "SELECT * FROM Customers";
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-        try (Connection connection = DBConnection.getInstance().getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-             ResultSet resultSet = preparedStatement.executeQuery()) {
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
                 customerList.add(new Customer(
@@ -45,7 +45,6 @@ public class CustomerRepository {
                         resultSet.getString("email")
                 ));
             }
-        }
         return customerList;
     }
 
