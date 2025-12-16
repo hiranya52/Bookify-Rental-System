@@ -56,6 +56,14 @@ public class CustomerInfoController implements Initializable {
     @FXML
     private JFXTextField txtPhoneNo;
 
+    private void clearTxtFields(){
+
+        txtName.clear();
+        txtPhoneNo.clear();
+        txtEmail.clear();
+
+    }
+
     @FXML
     void btnAddCusOnAction(ActionEvent event) {
         String cusId = lblCusID.getText();
@@ -68,7 +76,7 @@ public class CustomerInfoController implements Initializable {
         customerService.addCustomer(customerDTO);
 
         setNewID();
-
+        clearTxtFields();
         loadCustomers();
 
     }
