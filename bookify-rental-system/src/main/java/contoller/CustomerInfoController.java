@@ -5,23 +5,26 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.dto.CustomerDTO;
-import service.CustomerService;
+import service.CustomerServiceImpl;
 
+import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CustomerInfoController implements Initializable {
 
     ObservableList<CustomerDTO> customerDTOS = FXCollections.observableArrayList();
 
-    CustomerService customerService = new CustomerService();
+    CustomerServiceImpl customerService = new CustomerServiceImpl();
 
     @FXML
     private TableColumn<CustomerDTO, String> colContactNo;
@@ -98,7 +101,16 @@ public class CustomerInfoController implements Initializable {
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login_form.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

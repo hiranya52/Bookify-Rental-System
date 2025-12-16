@@ -2,15 +2,16 @@ package service;
 
 import model.dto.CustomerDTO;
 import model.entity.Customer;
-import repository.CustomerRepository;
+import repository.CustomerRepositoryImpl;
+import service.impl.CustomerService;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerService {
+public class CustomerServiceImpl implements CustomerService {
 
-    CustomerRepository customerRepository = new CustomerRepository();
+    CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl();
 
 
     public String getLastCustomerId(){

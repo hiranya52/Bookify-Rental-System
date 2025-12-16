@@ -2,12 +2,13 @@ package repository;
 
 import db.DBConnection;
 import model.entity.Customer;
+import repository.impl.CustomerRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerRepository {
+public class CustomerRepositoryImpl implements CustomerRepository {
 
     public String getLastCustomerId() throws SQLException {
 
