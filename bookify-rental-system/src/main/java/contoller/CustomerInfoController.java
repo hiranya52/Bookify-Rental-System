@@ -69,6 +69,8 @@ public class CustomerInfoController implements Initializable {
 
         setNewID();
 
+        loadCustomers();
+
     }
 
     @FXML
