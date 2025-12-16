@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -49,12 +49,12 @@
                         <Font name="Apple LiGothic Medium" size="28.0" />
                     </font>
                 </JFXButton>
-                <JFXButton alignment="BASELINE_LEFT" layoutY="334.0" onAction="#btnRentalsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Rentals" textFill="WHITE">
+                <JFXButton alignment="BASELINE_LEFT" layoutY="334.0" onAction="#btnRentalsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Rentals" textFill="#e83c75">
                     <font>
                         <Font name="Apple LiGothic Medium" size="28.0" />
                     </font>
                 </JFXButton>
-                <JFXButton alignment="BASELINE_LEFT" layoutY="268.0" onAction="#btnCustomersOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Customers" textFill="#e83c75">
+                <JFXButton alignment="BASELINE_LEFT" layoutY="268.0" onAction="#btnCustomersOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Customers" textFill="#fcfcfc">
                     <font>
                         <Font name="Apple LiGothic Medium" size="28.0" />
                     </font>
@@ -81,7 +81,7 @@
                 </JFXButton>
             </children>
         </AnchorPane>
-        <Label layoutX="336.0" layoutY="94.0" text="Customers" textFill="#212845">
+        <Label layoutX="336.0" layoutY="94.0" text="Rentals" textFill="#212845">
             <font>
                 <Font name="Apple LiGothic Medium" size="36.0" />
             </font>
@@ -93,56 +93,50 @@
         </Label>
         <AnchorPane layoutX="313.0" layoutY="158.0" prefHeight="570.0" prefWidth="518.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
             <children>
-                <TableView fx:id="tblCustomerDetails" layoutX="21.0" layoutY="19.0" prefHeight="529.0" prefWidth="477.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
+                <TableView fx:id="tblRentDetails" layoutX="21.0" layoutY="19.0" prefHeight="529.0" prefWidth="477.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
                     <columns>
-                        <TableColumn fx:id="colCusID" prefWidth="70.17218017578125" style="-fx-border-color: #212845; -fx-border-width: 1;" text="ID" />
-                        <TableColumn fx:id="colName" prefWidth="147.82781982421875" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Name" />
-                        <TableColumn fx:id="colContactNo" prefWidth="106.0166015625" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Contact No." />
-                        <TableColumn fx:id="colEmail" prefWidth="153.430419921875" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Email" />
+                        <TableColumn fx:id="colBookID" prefWidth="99.55398559570312" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Book ID" />
+                        <TableColumn fx:id="colCusID" prefWidth="121.91314697265625" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Customer ID" />
+                        <TableColumn fx:id="colIssueDate" prefWidth="120.67364501953125" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Issue Date" />
+                        <TableColumn fx:id="colDueDate" prefWidth="137.826416015625" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Due Date" />
                     </columns>
                 </TableView>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="857.0" layoutY="159.0" prefHeight="570.0" prefWidth="266.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
             <children>
-                <Label layoutX="21.0" layoutY="41.0" text="Customer Details" textFill="#212845">
+                <Label layoutX="21.0" layoutY="55.0" text="Rental Details" textFill="#212845">
                     <font>
                         <Font name="Apple LiGothic Medium" size="28.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="50.0" fitWidth="42.0" layoutX="198.0" layoutY="29.0">
+                <ImageView fitHeight="50.0" fitWidth="42.0" layoutX="198.0" layoutY="43.0">
                     <image>
                         <Image url="@../img/AddCustomer.jpg" />
                     </image>
                 </ImageView>
-                <Label layoutX="24.0" layoutY="121.0" text="Customer ID:" textFill="#212845">
-                    <font>
-                        <Font name="Apple LiGothic Medium" size="22.0" />
-                    </font>
-                </Label>
-                <Label fx:id="lblDate" layoutX="89.0" layoutY="89.0" text="2025-12-10" textFill="#212845">
+                <Label fx:id="lblDate" layoutX="89.0" layoutY="103.0" text="2025-12-10" textFill="#212845">
                     <font>
                         <Font name="Apple LiGothic Medium" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="26.0" layoutY="85.0" text="Date : " textFill="#212845">
+                <Label layoutX="26.0" layoutY="99.0" text="Date : " textFill="#212845">
                     <font>
                         <Font name="Apple LiGothic Medium" size="22.0" />
                     </font>
                 </Label>
-                <JFXTextField fx:id="txtName" layoutX="33.0" layoutY="204.0" prefHeight="30.0" prefWidth="200.0" promptText="     Name" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-                <JFXTextField fx:id="txtPhoneNo" layoutX="34.0" layoutY="275.0" prefHeight="30.0" prefWidth="200.0" promptText="     Phone Number" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-                <JFXTextField fx:id="txtEmail" layoutX="34.0" layoutY="344.0" prefHeight="30.0" prefWidth="200.0" promptText="     Email" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-                <JFXButton layoutX="80.0" layoutY="413.0" onAction="#btnAddCusOnAction" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #212845;" text="Add Customer" textFill="WHITE">
+                <JFXButton layoutX="78.0" layoutY="397.0" onAction="#btnRentOnAction" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #212845;" text="Rent" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </JFXButton>
-                <Label fx:id="lblCusID" layoutX="133.0" layoutY="125.0" text="C001" textFill="#2679ff">
+                <Label fx:id="lblCusID" layoutX="133.0" layoutY="115.0" textFill="#2679ff">
                     <font>
                         <Font name="Apple LiGothic Medium" size="18.0" />
                     </font>
                 </Label>
+            <JFXComboBox fx:id="cmbBookID" layoutX="32.0" layoutY="211.0" prefWidth="200.0" promptText="     Book ID" />
+            <JFXComboBox fx:id="cmbCustomerID" layoutX="33.0" layoutY="273.0" prefWidth="200.0" promptText="     Customer ID" />
             </children>
         </AnchorPane>
     </children>
