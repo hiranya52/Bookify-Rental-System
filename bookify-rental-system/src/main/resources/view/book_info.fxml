@@ -113,7 +113,7 @@
                         <Font name="Apple LiGothic Medium" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="26.0" layoutY="85.0" text="Date : " textFill="#212845">
+                <Label layoutX="24.0" layoutY="85.0" text="Date : " textFill="#212845">
                     <font>
                         <Font name="Apple LiGothic Medium" size="22.0" />
                     </font>
