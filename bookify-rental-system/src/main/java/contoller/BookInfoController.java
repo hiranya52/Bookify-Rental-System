@@ -7,11 +7,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import model.dto.BookDTO;
+import service.BookServiceImpl;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class BookInfoController implements Initializable {
+
+    BookServiceImpl bookService = new BookServiceImpl();
 
     @FXML
     private Label lblAdministrator;
@@ -36,6 +40,16 @@ public class BookInfoController implements Initializable {
 
     @FXML
     void btnAddBookOnAction(ActionEvent event) {
+
+        String id = lblBookID.getText();
+        String title = txtTitle.getText();
+        String author = txtAuthor.getText();
+        String category = txtCategory.getText();
+        int quantity = spnQty.getValue();
+
+        BookDTO bookDTO = new BookDTO(id,title,author,category,quantity);
+
+        bookService.addBook(bookDTO);
 
     }
 

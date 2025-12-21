@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerRepositoryImpl implements CustomerRepository {
+public class CustomerRepositoryImpl implements CustomerRepository    {
 
     public String getLastCustomerId() throws SQLException {
 
