@@ -143,7 +143,7 @@ public class CustomerInfoController implements Initializable {
         //----------------Set New ID----------------//
         String lastCusId = customerService.getLastCustomerId();
         if (lastCusId == null){
-            lastCusId = "C000";
+            lastCusId = "C001";
         }
         int numericPart = Integer.parseInt(lastCusId.substring(1));
         numericPart++;

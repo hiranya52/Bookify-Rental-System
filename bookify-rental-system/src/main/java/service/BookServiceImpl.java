@@ -31,4 +31,15 @@ public class BookServiceImpl {
     }
 
 
+    public String getLastBookID() {
+
+        try {
+            return bookRepository.getLastBookId();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 }
