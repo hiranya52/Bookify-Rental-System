@@ -52,6 +52,7 @@ public class BookInfoController implements Initializable {
         bookService.addBook(bookDTO);
 
         setNewID();
+        cleartxtFields();
 
     }
 
@@ -96,6 +97,16 @@ public class BookInfoController implements Initializable {
     }
 
 
+    private void cleartxtFields(){
+
+        txtTitle.clear();
+        txtAuthor.clear();
+        txtCategory.clear();
+        spnQty.getValueFactory().setValue(1);
+
+    }
+
+
     public void setNewID(){
 
         String lastBookID = bookService.getLastBookID();
@@ -112,7 +123,6 @@ public class BookInfoController implements Initializable {
         lblBookID.setText(newID);
 
     }
-
 
 
     @Override
