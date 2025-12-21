@@ -51,7 +51,7 @@ public class BookInfoController implements Initializable {
 
         bookService.addBook(bookDTO);
 
-
+        setNewID();
 
     }
 
@@ -96,6 +96,23 @@ public class BookInfoController implements Initializable {
     }
 
 
+    public void setNewID(){
+
+        String lastBookID = bookService.getLastBookID();
+
+        if(lastBookID == null){
+            lastBookID = "B001";
+        }
+
+        int numericPart = Integer.parseInt(lastBookID.substring(1));
+        numericPart++;
+
+        String newID = String.format("B%03d" , numericPart);
+
+        lblBookID.setText(newID);
+
+    }
+
 
 
     @Override
@@ -106,7 +123,7 @@ public class BookInfoController implements Initializable {
         spnQty.setEditable(true);
 
 
-
+        setNewID();
 
     }
 
