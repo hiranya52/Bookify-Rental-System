@@ -4,12 +4,8 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import model.dto.UserDTO;
-import service.UserServiceImpl;
 
 public class UserInfoController {
-
-    UserServiceImpl userService = new UserServiceImpl();
 
     @FXML
     private Label lblAdministrator;
@@ -19,6 +15,9 @@ public class UserInfoController {
 
     @FXML
     private Label lblUserID;
+
+    @FXML
+    private Label spnRole;
 
     @FXML
     private JFXTextField txtAddress;
@@ -40,11 +39,7 @@ public class UserInfoController {
         String contact = txtContact.getText();
         String address = txtAddress.getText();
         String email = txtEmail.getText();
-
-        UserDTO userDTO = new UserDTO(id,name,contact,address,email);
-
-        userService.addUser(userDTO);
-
+        String role = spnRole.
 
     }
 
@@ -60,6 +55,11 @@ public class UserInfoController {
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnDeleteUserOnAction(ActionEvent event) {
 
     }
 
@@ -80,6 +80,11 @@ public class UserInfoController {
 
     @FXML
     void btnReturnsOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnUpdateUserOnAction(ActionEvent event) {
 
     }
 
