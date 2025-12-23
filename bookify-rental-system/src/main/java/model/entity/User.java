@@ -14,5 +14,6 @@ public class User {
     private String contact;
     private String email;
     private String address;
+    private String role;
 
 }
