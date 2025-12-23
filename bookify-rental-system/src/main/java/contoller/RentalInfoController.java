@@ -26,7 +26,7 @@ public class RentalInfoController implements Initializable {
     BookService bookService = new BookServiceImpl();
 
     @FXML
-    private JFXComboBox<?> cmbBookID;
+    private JFXComboBox<String> cmbBookID;
 
     @FXML
     private JFXComboBox<String> cmbCustomerID;
@@ -124,6 +124,15 @@ public class RentalInfoController implements Initializable {
 
         cmbCustomerID.setItems(allCusIDs);
 
+        ArrayList<BookDTO> allBooks = bookService.getAllBooks();
+
+        ObservableList<String> allBookIDs = FXCollections.observableArrayList();
+
+        for (BookDTO bookDTO : allBooks){
+            allBookIDs.add(bookDTO.getId());
+        }
+
+        cmbBookID.setItems(allBookIDs);
 
     }
 }

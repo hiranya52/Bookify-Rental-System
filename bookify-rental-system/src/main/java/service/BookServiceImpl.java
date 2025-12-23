@@ -47,7 +47,7 @@ public class BookServiceImpl implements BookService {
     }
 
 
-    public ArrayList<BookDTO> getAllCustomers(){
+    public ArrayList<BookDTO> getAllBooks(){
 
         ArrayList<BookDTO> bookDTOS = new ArrayList<>();
         try {
