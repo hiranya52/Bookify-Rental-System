@@ -11,25 +11,27 @@ public class UserInfoController {
     private Label lblAdministrator;
 
     @FXML
-    private Label lblBookID;
-
-    @FXML
     private Label lblDate;
 
     @FXML
-    private JFXTextField txtAuthor;
+    private Label lblUserID;
 
     @FXML
-    private JFXTextField txtCategory;
+    private JFXTextField txtAddress;
 
     @FXML
-    private JFXTextField txtCategory1;
+    private JFXTextField txtContact;
 
     @FXML
-    private JFXTextField txtTitle;
+    private JFXTextField txtEmail;
 
     @FXML
-    void btnAddBookOnAction(ActionEvent event) {
+    private JFXTextField txtName;
+
+    @FXML
+    void btnAddUserOnAction(ActionEvent event) {
+
+//        String id =
 
     }
 

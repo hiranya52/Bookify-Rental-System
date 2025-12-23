@@ -97,7 +97,7 @@
                         <Font name="Apple LiGothic Medium" size="28.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="50.0" fitWidth="42.0" layoutX="198.0" layoutY="29.0">
+                <ImageView fitHeight="50.0" fitWidth="42.0" layoutX="195.0" layoutY="29.0">
                     <image>
                         <Image url="@../img/AddCustomer.jpg" />
                     </image>
@@ -117,20 +117,20 @@
                         <Font name="Apple LiGothic Medium" size="22.0" />
                     </font>
                 </Label>
-                <JFXTextField fx:id="txtTitle" layoutX="33.0" layoutY="189.0" prefHeight="30.0" prefWidth="200.0" promptText="     Name" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-                <JFXTextField fx:id="txtAuthor" layoutX="34.0" layoutY="253.0" prefHeight="30.0" prefWidth="200.0" promptText="     Phone Number" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-                <JFXTextField fx:id="txtCategory" layoutX="34.0" layoutY="319.0" prefHeight="30.0" prefWidth="200.0" promptText="     Address" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-                <JFXButton layoutX="78.0" layoutY="459.0" onAction="#btnAddBookOnAction" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #212845;" text="Add User" textFill="WHITE">
+                <JFXTextField fx:id="txtName" layoutX="33.0" layoutY="189.0" prefHeight="30.0" prefWidth="200.0" promptText="     Name" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+                <JFXTextField fx:id="txtContact" layoutX="34.0" layoutY="253.0" prefHeight="30.0" prefWidth="200.0" promptText="     Phone Number" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+                <JFXTextField fx:id="txtAddress" layoutX="34.0" layoutY="319.0" prefHeight="30.0" prefWidth="200.0" promptText="     Address" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+                <JFXButton layoutX="78.0" layoutY="459.0" onAction="#btnAddUserOnAction" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #212845;" text="Add User" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </JFXButton>
-                <Label fx:id="lblBookID" layoutX="107.0" layoutY="125.0" text="E001" textFill="#2679ff">
+                <Label fx:id="lblUserID" layoutX="107.0" layoutY="125.0" text="E001" textFill="#2679ff">
                     <font>
                         <Font name="Apple LiGothic Medium" size="18.0" />
                     </font>
                 </Label>
-            <JFXTextField fx:id="txtCategory1" layoutX="35.0" layoutY="384.0" prefHeight="30.0" prefWidth="200.0" promptText="     Email" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+            <JFXTextField fx:id="txtEmail" layoutX="35.0" layoutY="384.0" prefHeight="30.0" prefWidth="200.0" promptText="     Email" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
             </children>
         </AnchorPane>
     </children>

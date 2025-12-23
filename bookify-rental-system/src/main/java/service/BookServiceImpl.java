@@ -3,10 +3,11 @@ package service;
 import model.dto.BookDTO;
 import model.entity.Book;
 import repository.BookRepositoryImpl;
+import service.impl.BookService;
 
 import java.sql.SQLException;
 
-public class BookServiceImpl {
+public class BookServiceImpl implements BookService {
 
     BookRepositoryImpl bookRepository = new BookRepositoryImpl();
 
