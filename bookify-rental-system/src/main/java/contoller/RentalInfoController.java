@@ -15,7 +15,6 @@ import service.impl.CustomerService;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class RentalInfoController implements Initializable {
@@ -52,6 +51,12 @@ public class RentalInfoController implements Initializable {
     @FXML
     private TableView<?> tblRentDetails;
 
+
+    @FXML
+    void btnRentOnAction(ActionEvent event) {
+
+    }
+
     @FXML
     void btnBooksOnAction(ActionEvent event) {
 
@@ -64,16 +69,6 @@ public class RentalInfoController implements Initializable {
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnLogOutOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnRentOnAction(ActionEvent event) {
 
     }
 
@@ -97,19 +92,33 @@ public class RentalInfoController implements Initializable {
 
     }
 
+    @FXML
+    void btnDeleteBookOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnUpdateBookOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnLogOutOnAction(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        // -------- Load Customer IDs into ComboBox --------
         ArrayList<CustomerDTO> allCustomers = customerService.getAllCustomers();
 
         ObservableList<String> allCusIDs = FXCollections.observableArrayList();
 
-        for (CustomerDTO customerDTO : allCustomers){
+        for (CustomerDTO customerDTO : allCustomers) {
             allCusIDs.add(customerDTO.getId());
         }
 
         cmbCustomerID.setItems(allCusIDs);
-
-
     }
 }
