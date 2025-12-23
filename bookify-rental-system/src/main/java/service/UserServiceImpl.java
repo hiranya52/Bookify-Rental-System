@@ -18,11 +18,22 @@ public class UserServiceImpl {
                 userDTO.getName(),
                 userDTO.getContact(),
                 userDTO.getAddress(),
-                userDTO.getEmail()
+                userDTO.getEmail(),
+                userDTO.getRole()
         );
 
         try {
             userRepository.addUser(user);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public String getLastUserId() {
+
+        try {
+            return userRepository.getLastUserId();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

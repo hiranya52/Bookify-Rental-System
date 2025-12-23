@@ -14,11 +14,9 @@ public class UserRepositoryImpl {
     public String getLastUserId() throws SQLException {
 
         String lastId = null;
-
         Connection connection = DBConnection.getInstance().getConnection();
 
-        String SQL = "SELECT customer_id FROM customers ORDER BY customer_id DESC LIMIT 1";
-
+        String SQL = "SELECT id FROM users ORDER BY id DESC LIMIT 1";
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
         ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -34,7 +32,7 @@ public class UserRepositoryImpl {
 
         Connection connection = DBConnection.getInstance().getConnection();
 
-        String SQL = "INSERT INTO users VALUES (?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
@@ -43,6 +41,7 @@ public class UserRepositoryImpl {
         preparedStatement.setObject(3,user.getContact());
         preparedStatement.setObject(4,user.getAddress());
         preparedStatement.setObject(5,user.getEmail());
+        preparedStatement.setObject(6,user.getRole());
 
         preparedStatement.executeUpdate();
 

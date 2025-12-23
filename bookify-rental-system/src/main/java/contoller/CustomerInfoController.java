@@ -141,13 +141,14 @@ public class CustomerInfoController implements Initializable {
 
     public void setNewID(){
         //----------------Set New ID----------------//
+        String newId="";
         String lastCusId = customerService.getLastCustomerId();
         if (lastCusId == null){
-            lastCusId = "C001";
+            newId = "C001";
         }
         int numericPart = Integer.parseInt(lastCusId.substring(1));
         numericPart++;
-        String newId = String.format("C%03d", numericPart);
+        newId = String.format("C%03d", numericPart);
         lblCusID.setText(newId);
     }
 

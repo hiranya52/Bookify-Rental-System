@@ -1,11 +1,24 @@
 package contoller;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import model.dto.UserDTO;
+import service.UserServiceImpl;
 
-public class UserInfoController {
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class UserInfoController implements Initializable {
+
+    UserServiceImpl userService = new UserServiceImpl();
+
+    @FXML
+    private JFXComboBox<String> cmbRole;
 
     @FXML
     private Label lblAdministrator;
@@ -15,9 +28,6 @@ public class UserInfoController {
 
     @FXML
     private Label lblUserID;
-
-    @FXML
-    private Label spnRole;
 
     @FXML
     private JFXTextField txtAddress;
@@ -33,6 +43,17 @@ public class UserInfoController {
 
     @FXML
     void btnAddUserOnAction(ActionEvent event) {
+
+        String id = lblUserID.getText();
+        String name = txtName.getText();
+        String contact = txtContact.getText();
+        String address = txtAddress.getText();
+        String email = txtEmail.getText();
+        String role = cmbRole.getSelectionModel().getSelectedItem();
+
+        UserDTO userDTO = new UserDTO(id,name,contact,address,email,role);
+        userService.addUser(userDTO);
+
 
     }
 
@@ -85,5 +106,17 @@ public class UserInfoController {
     void btnUserManagementOnAction(ActionEvent event) {
 
     }
+
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+
+        cmbRole.getItems().addAll("Admin","Staff");
+
+    }
+
 
 }
