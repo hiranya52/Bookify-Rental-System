@@ -41,6 +41,16 @@ public class UserInfoController implements Initializable {
     @FXML
     private JFXTextField txtName;
 
+    private void clearTxtFields(){
+
+        txtName.clear();
+        txtContact.clear();
+        txtAddress.clear();
+        txtEmail.clear();
+        cmbRole.setValue(null);
+
+    }
+
     @FXML
     void btnAddUserOnAction(ActionEvent event) {
 
@@ -55,6 +65,7 @@ public class UserInfoController implements Initializable {
         userService.addUser(userDTO);
 
         setNewID();
+        clearTxtFields();
 
 
     }
@@ -116,11 +127,12 @@ public class UserInfoController implements Initializable {
 
         if(lastId == null){
             newID = "E001";
+        }else{
+            int numericPart = Integer.parseInt(lastId.substring(1));
+            numericPart++;
+            newID = String.format("E%03d", numericPart);
         }
 
-        int numericPart = Integer.parseInt(lastId.substring(1));
-        numericPart++;
-        newID = String.format("C%03d", numericPart);
         lblUserID.setText(newID);
 
     }
