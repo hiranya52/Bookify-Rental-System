@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 public class CustomerInfoController implements Initializable {
 
     ObservableList<CustomerDTO> customerDTOS = FXCollections.observableArrayList();
-
     CustomerServiceImpl customerService = new CustomerServiceImpl();
 
     @FXML
@@ -59,29 +58,21 @@ public class CustomerInfoController implements Initializable {
     @FXML
     private JFXTextField txtPhoneNo;
 
-    private void clearTxtFields(){
-
-        txtName.clear();
-        txtPhoneNo.clear();
-        txtEmail.clear();
-
-    }
 
     @FXML
-    void btnAddCusOnAction(ActionEvent event) {
+    void btnAddCustomerOnAction(ActionEvent event) {
+
         String cusId = lblCusID.getText();
         String name = txtName.getText();
         String phoneNo = txtPhoneNo.getText();
         String email = txtEmail.getText();
 
-        CustomerDTO customerDTO = new CustomerDTO(cusId,name,phoneNo,email);
-
+        CustomerDTO customerDTO = new CustomerDTO(cusId, name, phoneNo, email);
         customerService.addCustomer(customerDTO);
 
         setNewID();
         clearTxtFields();
         loadCustomers();
-
     }
 
     @FXML
@@ -97,20 +88,6 @@ public class CustomerInfoController implements Initializable {
     @FXML
     void btnDashboardOnAction(ActionEvent event) {
 
-    }
-
-    @FXML
-    void btnLogOutOnAction(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login_form.fxml"));
-            Scene scene = new Scene(loader.load());
-
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-
-            stage.setScene(scene);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @FXML
@@ -133,22 +110,56 @@ public class CustomerInfoController implements Initializable {
 
     }
 
-    private void loadCustomers(){
+    @FXML
+    void btnDeleteCustomerOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnUpdateCustomerOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnLogOutOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login_form.fxml"));
+            Scene scene = new Scene(loader.load());
+
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource())
+                    .getScene().getWindow();
+
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void clearTxtFields() {
+        txtName.clear();
+        txtPhoneNo.clear();
+        txtEmail.clear();
+    }
+
+    private void loadCustomers() {
         customerDTOS.clear();
         customerDTOS.addAll(customerService.getAllCustomers());
         tblCustomerDetails.setItems(customerDTOS);
     }
 
-    public void setNewID(){
-        //----------------Set New ID----------------//
-        String newId="";
+    public void setNewID() {
+
+        String newId = "";
         String lastCusId = customerService.getLastCustomerId();
-        if (lastCusId == null){
+
+        if (lastCusId == null) {
             newId = "C001";
+        } else {
+            int numericPart = Integer.parseInt(lastCusId.substring(1));
+            numericPart++;
+            newId = String.format("C%03d", numericPart);
         }
-        int numericPart = Integer.parseInt(lastCusId.substring(1));
-        numericPart++;
-        newId = String.format("C%03d", numericPart);
+
         lblCusID.setText(newId);
     }
 
@@ -163,8 +174,6 @@ public class CustomerInfoController implements Initializable {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         tblCustomerDetails.setItems(customerDTOS);
-
         loadCustomers();
-
     }
 }
