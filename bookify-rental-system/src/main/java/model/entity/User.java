@@ -1,5 +1,4 @@
-package model.dto;
-
+package model.entity;
 
 import lombok.*;
 
@@ -8,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UserDTO {
+public class User {
 
     private String id;
     private String name;
