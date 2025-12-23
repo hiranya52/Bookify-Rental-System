@@ -4,8 +4,12 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import model.dto.UserDTO;
+import service.UserServiceImpl;
 
 public class UserInfoController {
+
+    UserServiceImpl userService = new UserServiceImpl();
 
     @FXML
     private Label lblAdministrator;
@@ -31,7 +35,16 @@ public class UserInfoController {
     @FXML
     void btnAddUserOnAction(ActionEvent event) {
 
-//        String id =
+        String id = lblUserID.getText();
+        String name = txtName.getText();
+        String contact = txtContact.getText();
+        String address = txtAddress.getText();
+        String email = txtEmail.getText();
+
+        UserDTO userDTO = new UserDTO(id,name,contact,address,email);
+
+        userService.addUser(userDTO);
+
 
     }
 
