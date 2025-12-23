@@ -34,13 +34,6 @@ public class UserInfoController {
     @FXML
     void btnAddUserOnAction(ActionEvent event) {
 
-        String id = lblUserID.getText();
-        String name = txtName.getText();
-        String contact = txtContact.getText();
-        String address = txtAddress.getText();
-        String email = txtEmail.getText();
-        String role = spnRole.
-
     }
 
     @FXML
