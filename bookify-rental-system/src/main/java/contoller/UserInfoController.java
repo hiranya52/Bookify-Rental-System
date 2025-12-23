@@ -107,12 +107,27 @@ public class UserInfoController implements Initializable {
 
     }
 
+    private void setNewID(){
+
+        String newID = "";
+        String lastId = userService.getLastUserId();
+
+        if(lastId == null){
+            newID = "E001";
+        }
+
+        int numericPart = Integer.parseInt(lastId.substring(1));
+        numericPart++;
+        newID = String.format("C%03d", numericPart);
+        lblUserID.setText(newID);
+
+    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+        setNewID();
 
         cmbRole.getItems().addAll("Admin","Staff");
 
