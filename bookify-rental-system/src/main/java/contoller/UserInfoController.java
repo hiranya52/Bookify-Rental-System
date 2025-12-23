@@ -54,6 +54,8 @@ public class UserInfoController implements Initializable {
         UserDTO userDTO = new UserDTO(id,name,contact,address,email,role);
         userService.addUser(userDTO);
 
+        setNewID();
+
 
     }
 
