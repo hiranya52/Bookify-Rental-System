@@ -1,11 +1,15 @@
 package service;
 
 import model.dto.BookDTO;
+import model.dto.CustomerDTO;
 import model.entity.Book;
+import model.entity.Customer;
 import repository.BookRepositoryImpl;
 import service.impl.BookService;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookServiceImpl implements BookService {
 
@@ -40,6 +44,30 @@ public class BookServiceImpl implements BookService {
             throw new RuntimeException(e);
         }
 
+    }
+
+
+    public ArrayList<BookDTO> getAllCustomers(){
+
+        ArrayList<BookDTO> bookDTOS = new ArrayList<>();
+        try {
+            List<Book> bookList = bookRepository.getAllBooks();
+
+            for(Book book : bookList){
+                bookDTOS.add(
+                        new BookDTO(
+                                book.getId(),
+                                book.getTitle(),
+                                book.getAuthor(),
+                                book.getCategory(),
+                                book.getQuantity()
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return bookDTOS;
     }
 
 

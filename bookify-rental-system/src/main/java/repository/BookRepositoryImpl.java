@@ -2,12 +2,15 @@ package repository;
 
 import db.DBConnection;
 import model.entity.Book;
+import model.entity.Customer;
 import repository.impl.BookRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookRepositoryImpl implements BookRepository {
 
@@ -48,6 +51,27 @@ public class BookRepositoryImpl implements BookRepository {
         preparedStatement.executeUpdate();
 
 
+    }
+
+    public List<Book> getAllBooks() throws SQLException {
+        List<Book> bookList = new ArrayList<>();
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "SELECT * FROM Books";
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+            bookList.add(new Book(
+                    resultSet.getString("id"),
+                    resultSet.getString("title"),
+                    resultSet.getString("author"),
+                    resultSet.getString("category"),
+                    resultSet.getInt("quantity")
+            ));
+        }
+        return bookList;
     }
 
 

@@ -9,8 +9,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import model.dto.BookDTO;
 import model.dto.CustomerDTO;
+import service.BookServiceImpl;
 import service.CustomerServiceImpl;
+import service.impl.BookService;
 import service.impl.CustomerService;
 
 import java.net.URL;
@@ -20,6 +23,7 @@ import java.util.ResourceBundle;
 public class RentalInfoController implements Initializable {
 
     CustomerService customerService = new CustomerServiceImpl();
+    BookService bookService = new BookServiceImpl();
 
     @FXML
     private JFXComboBox<?> cmbBookID;
@@ -110,7 +114,6 @@ public class RentalInfoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        // -------- Load Customer IDs into ComboBox --------
         ArrayList<CustomerDTO> allCustomers = customerService.getAllCustomers();
 
         ObservableList<String> allCusIDs = FXCollections.observableArrayList();
@@ -120,5 +123,7 @@ public class RentalInfoController implements Initializable {
         }
 
         cmbCustomerID.setItems(allCusIDs);
+
+
     }
 }
