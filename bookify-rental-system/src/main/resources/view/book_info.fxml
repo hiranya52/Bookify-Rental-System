@@ -20,7 +20,7 @@
                 </ImageView>
                 <Label layoutX="86.0" layoutY="72.0" text="Bookify Rental" textFill="WHITE">
                     <font>
-                        <Font name="Apple LiGothic Medium" size="34.0" />
+                        <Font name="Apple LiGothic Medium" size="32.0" />
                     </font>
                 </Label>
                 <Label layoutX="101.0" layoutY="617.0" text="Administrator" textFill="WHITE">
@@ -38,39 +38,39 @@
                         <Image url="@../img/Profile.png" />
                     </image>
                 </ImageView>
-                <JFXButton alignment="BASELINE_LEFT" layoutY="400.0" onAction="#btnReturnsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Returns" textFill="WHITE">
+                <JFXButton alignment="BASELINE_LEFT" layoutY="400.0" onAction="#btnReturnsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="    Returns" textFill="WHITE">
                     <font>
-                        <Font name="Apple LiGothic Medium" size="28.0" />
+                        <Font name="Apple LiGothic Medium" size="26.0" />
                     </font>
                 </JFXButton>
-                <JFXButton alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="467.0" onAction="#btnReportsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Reports" textFill="WHITE">
+                <JFXButton alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="467.0" onAction="#btnReportsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="    Reports" textFill="WHITE">
                     <font>
-                        <Font name="Apple LiGothic Medium" size="28.0" />
+                        <Font name="Apple LiGothic Medium" size="26.0" />
                     </font>
                 </JFXButton>
-                <JFXButton alignment="BASELINE_LEFT" layoutY="334.0" onAction="#btnRentalsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Rentals" textFill="WHITE">
+                <JFXButton alignment="BASELINE_LEFT" layoutY="334.0" onAction="#btnRentalsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="    Rentals" textFill="WHITE">
                     <font>
-                        <Font name="Apple LiGothic Medium" size="28.0" />
+                        <Font name="Apple LiGothic Medium" size="26.0" />
                     </font>
                 </JFXButton>
-                <JFXButton alignment="BASELINE_LEFT" layoutY="268.0" onAction="#btnCustomersOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Customers" textFill="WHITE">
+                <JFXButton alignment="BASELINE_LEFT" layoutY="268.0" onAction="#btnCustomersOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="    Customers" textFill="WHITE">
                     <font>
-                        <Font name="Apple LiGothic Medium" size="28.0" />
+                        <Font name="Apple LiGothic Medium" size="26.0" />
                     </font>
                 </JFXButton>
-                <JFXButton alignment="BASELINE_LEFT" layoutY="202.0" onAction="#btnBooksOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Books" textFill="#e83c75">
+                <JFXButton alignment="BASELINE_LEFT" layoutY="202.0" onAction="#btnBooksOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="    Books" textFill="#e83c75">
                     <font>
-                        <Font name="Apple LiGothic Medium" size="28.0" />
+                        <Font name="Apple LiGothic Medium" size="26.0" />
                     </font>
                 </JFXButton>
-                <JFXButton alignment="BASELINE_LEFT" layoutY="136.0" onAction="#btnDashboardOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Dashboard" textFill="WHITE">
+                <JFXButton alignment="BASELINE_LEFT" layoutY="136.0" onAction="#btnDashboardOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="    Dashboard" textFill="WHITE">
                     <font>
-                        <Font name="Apple LiGothic Medium" size="28.0" />
+                        <Font name="Apple LiGothic Medium" size="26.0" />
                     </font>
                 </JFXButton>
                 <JFXButton layoutY="533.0" onAction="#btnUserManagementOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="User Management" textFill="WHITE">
                     <font>
-                        <Font name="Apple LiGothic Medium" size="28.0" />
+                        <Font name="Apple LiGothic Medium" size="26.0" />
                     </font>
                 </JFXButton>
                 <JFXButton alignment="BASELINE_LEFT" layoutY="682.0" onAction="#btnLogOutOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="    Log Out" textFill="WHITE">
@@ -80,18 +80,18 @@
                 </JFXButton>
             </children>
         </AnchorPane>
-        <Label layoutX="340.0" layoutY="94.0" text="Books" textFill="#212845">
+        <Label layoutX="336.0" layoutY="78.0" text="Books" textFill="#212845">
             <font>
-                <Font name="Apple LiGothic Medium" size="36.0" />
+                <Font name="Apple LiGothic Medium" size="26.0" />
             </font>
         </Label>
-        <Label layoutX="939.0" layoutY="109.0" text="Home/Books" textFill="#212845">
+        <Label layoutX="1028.0" layoutY="91.0" text="Home/Books" textFill="#212845">
             <font>
-                <Font name="Apple LiGothic Medium" size="20.0" />
+                <Font name="Apple LiGothic Medium" size="16.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="313.0" layoutY="158.0" prefHeight="570.0" prefWidth="518.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css" />
-        <AnchorPane layoutX="857.0" layoutY="159.0" prefHeight="570.0" prefWidth="266.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+        <AnchorPane layoutX="313.0" layoutY="125.0" prefHeight="600.0" prefWidth="518.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css" />
+        <AnchorPane layoutX="857.0" layoutY="126.0" prefHeight="600.0" prefWidth="266.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
             <children>
                 <Label layoutX="21.0" layoutY="41.0" text="Book Details" textFill="#212845">
                     <font>
@@ -103,35 +103,45 @@
                         <Image url="@../img/AddCustomer.jpg" />
                     </image>
                 </ImageView>
-                <Label layoutX="24.0" layoutY="121.0" text="Book ID:" textFill="#212845">
+                <Label layoutX="24.0" layoutY="114.0" text="Book ID:" textFill="#212845">
                     <font>
                         <Font name="Apple LiGothic Medium" size="22.0" />
                     </font>
                 </Label>
-                <Label fx:id="lblDate" layoutX="89.0" layoutY="89.0" text="2025-12-10" textFill="#212845">
+                <Label fx:id="lblDate" layoutX="89.0" layoutY="84.0" text="2025-12-10" textFill="#212845">
                     <font>
                         <Font name="Apple LiGothic Medium" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="24.0" layoutY="85.0" text="Date : " textFill="#212845">
+                <Label layoutX="24.0" layoutY="80.0" text="Date : " textFill="#212845">
                     <font>
                         <Font name="Apple LiGothic Medium" size="22.0" />
                     </font>
                 </Label>
-                <JFXTextField fx:id="txtTitle" layoutX="33.0" layoutY="189.0" prefHeight="30.0" prefWidth="200.0" promptText="     Title" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-                <JFXTextField fx:id="txtAuthor" layoutX="34.0" layoutY="260.0" prefHeight="30.0" prefWidth="200.0" promptText="     Author" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-                <JFXTextField fx:id="txtCategory" layoutX="34.0" layoutY="329.0" prefHeight="30.0" prefWidth="200.0" promptText="     Category" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-                <JFXButton layoutX="78.0" layoutY="468.0" onAction="#btnAddBookOnAction" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #212845;" text="Add Book" textFill="WHITE">
+                <JFXTextField fx:id="txtTitle" layoutX="33.0" layoutY="184.0" prefHeight="30.0" prefWidth="200.0" promptText="     Title" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+                <JFXTextField fx:id="txtAuthor" layoutX="34.0" layoutY="247.0" prefHeight="30.0" prefWidth="200.0" promptText="     Author" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+                <JFXTextField fx:id="txtCategory" layoutX="34.0" layoutY="312.0" prefHeight="30.0" prefWidth="200.0" promptText="     Category" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+                <JFXButton layoutX="32.0" layoutY="441.0" onAction="#btnAddBookOnAction" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #212845;" text="Add Book" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </JFXButton>
-                <Label fx:id="lblBookID" layoutX="107.0" layoutY="125.0" text="B001" textFill="#2679ff">
+                <Label fx:id="lblBookID" layoutX="107.0" layoutY="117.0" text="B001" textFill="#2679ff">
                     <font>
                         <Font name="Apple LiGothic Medium" size="18.0" />
                     </font>
                 </Label>
-            <Spinner fx:id="spnQty" layoutX="31.0" layoutY="400.0" prefHeight="26.0" prefWidth="200.0" />
+            <Spinner fx:id="spnQty" layoutX="33.0" layoutY="376.0" prefHeight="26.0" prefWidth="200.0" style="-fx-border-width: 1; -fx-border-color: Black;" />
+            <JFXButton layoutX="34.0" layoutY="486.0" onAction="#btnUpdateBookOnAction" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #2679ff;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="136.0" layoutY="486.0" onAction="#btnDeleteBookOnAction" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #d00000;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
             </children>
         </AnchorPane>
     </children>

@@ -38,6 +38,7 @@ public class BookInfoController implements Initializable {
     @FXML
     private JFXTextField txtTitle;
 
+
     @FXML
     void btnAddBookOnAction(ActionEvent event) {
 
@@ -47,13 +48,11 @@ public class BookInfoController implements Initializable {
         String category = txtCategory.getText();
         int quantity = spnQty.getValue();
 
-        BookDTO bookDTO = new BookDTO(id,title,author,category,quantity);
-
+        BookDTO bookDTO = new BookDTO(id, title, author, category, quantity);
         bookService.addBook(bookDTO);
 
         setNewID();
         cleartxtFields();
-
     }
 
     @FXML
@@ -96,46 +95,47 @@ public class BookInfoController implements Initializable {
 
     }
 
+    @FXML
+    void btnDeleteBookOnAction(ActionEvent event) {
 
-    private void cleartxtFields(){
+    }
 
+    @FXML
+    void btnUpdateBookOnAction(ActionEvent event) {
+
+    }
+
+    private void cleartxtFields() {
         txtTitle.clear();
         txtAuthor.clear();
         txtCategory.clear();
         spnQty.getValueFactory().setValue(1);
-
     }
 
-
-    public void setNewID(){
+    public void setNewID() {
 
         String lastBookID = bookService.getLastBookID();
 
-        if(lastBookID == null){
+        if (lastBookID == null) {
             lastBookID = "B001";
         }
 
         int numericPart = Integer.parseInt(lastBookID.substring(1));
         numericPart++;
 
-        String newID = String.format("B%03d" , numericPart);
-
+        String newID = String.format("B%03d", numericPart);
         lblBookID.setText(newID);
-
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
+        SpinnerValueFactory<Integer> valueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
+
         spnQty.setValueFactory(valueFactory);
         spnQty.setEditable(true);
 
-
         setNewID();
-
     }
-
-
 }

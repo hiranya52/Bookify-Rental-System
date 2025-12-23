@@ -85,7 +85,7 @@
                 <Font name="Apple LiGothic Medium" size="26.0" />
             </font>
         </Label>
-        <Label layoutX="939.0" layoutY="89.0" text="Home/User Management" textFill="#212845">
+        <Label layoutX="956.0" layoutY="89.0" text="Home/User Management" textFill="#212845">
             <font>
                 <Font name="Apple LiGothic Medium" size="16.0" />
             </font>
@@ -121,7 +121,7 @@
                 <JFXTextField fx:id="txtName" layoutX="33.0" layoutY="164.0" prefHeight="30.0" prefWidth="200.0" promptText="     Name" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
                 <JFXTextField fx:id="txtContact" layoutX="34.0" layoutY="219.0" prefHeight="30.0" prefWidth="200.0" promptText="     Phone Number" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
                 <JFXTextField fx:id="txtAddress" layoutX="34.0" layoutY="274.0" prefHeight="30.0" prefWidth="200.0" promptText="     Address" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
-                <JFXButton layoutX="35.0" layoutY="447.0" onAction="#btnAddUserOnAction" prefHeight="34.0" prefWidth="197.0" style="-fx-background-color: #212845;" text="Add User" textFill="WHITE">
+                <JFXButton layoutX="34.0" layoutY="447.0" onAction="#btnAddUserOnAction" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #212845;" text="Add User" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
