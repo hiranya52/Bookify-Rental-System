@@ -37,9 +37,9 @@ public class UserRepositoryImpl {
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
         preparedStatement.setObject(1,user.getId());
-        preparedStatement.setObject(2,user.getName());
-        preparedStatement.setObject(3,user.getContact());
-        preparedStatement.setObject(4,user.getAddress());
+        preparedStatement.setObject(2,user.getTitle());
+        preparedStatement.setObject(3,user.getName());
+        preparedStatement.setObject(4,user.getContact());
         preparedStatement.setObject(5,user.getEmail());
         preparedStatement.setObject(6,user.getRole());
 

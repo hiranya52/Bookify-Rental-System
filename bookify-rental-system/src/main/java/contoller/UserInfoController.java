@@ -4,9 +4,12 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import model.dto.UserDTO;
 import service.UserServiceImpl;
 
 import java.net.URL;
@@ -41,11 +44,48 @@ public class UserInfoController implements Initializable {
     private JFXTextField txtName;
 
     @FXML
-    private AnchorPane userContainer;
+    private GridPane userContainer;
 
     @FXML
     void btnAddUserOnAction(ActionEvent event) {
 
+        String id = lblUserID.getText();
+        String title = cmbTitle.getSelectionModel().getSelectedItem();
+        String name = txtName.getText();
+        String contact = txtContact.getText();
+        String email = txtEmail.getText();
+        String role = cmbRole.getSelectionModel().getSelectedItem();
+
+        UserDTO userDTO = new UserDTO(id,title,name,contact,email,role);
+        userService.addUser(userDTO);
+
+        loadUser(name,contact);
+        setNewID();
+        clearTxtFields();
+
+    }
+
+    private void loadUser(String name, String contact){
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/view/user_card.fxml")
+            );
+
+            AnchorPane card = loader.load();
+
+            UserCardController controller = loader.getController();
+            controller.setUserData(name, contact);
+
+            int totalCards = userContainer.getChildren().size();
+
+            int column = totalCards % 3;   // 0,1,2
+            int row = totalCards / 3;      // auto increases
+
+            userContainer.add(card, column, row);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -98,13 +138,19 @@ public class UserInfoController implements Initializable {
 
     }
 
+    private void clearTxtFields(){
+        cmbTitle.setValue(null);
+        txtName.clear();
+        txtContact.clear();
+        txtEmail.clear();
+        cmbRole.setValue(null);
+    }
+
 
     private void setNewID(){
 
-
         String newID = "";
         String lastId = userService.getLastUserId();
-
 
         if(lastId == null){
             newID = "E001";
@@ -113,7 +159,6 @@ public class UserInfoController implements Initializable {
             numericPart++;
             newID = String.format("E%03d", numericPart);
         }
-
         lblUserID.setText(newID);
 
     }

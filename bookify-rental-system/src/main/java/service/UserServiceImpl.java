@@ -15,9 +15,9 @@ public class UserServiceImpl {
 
         User user = new User(
                 userDTO.getId(),
+                userDTO.getTitle(),
                 userDTO.getName(),
                 userDTO.getContact(),
-                userDTO.getAddress(),
                 userDTO.getEmail(),
                 userDTO.getRole()
         );
