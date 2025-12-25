@@ -2,6 +2,7 @@ package contoller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import model.dto.UserDTO;
 import service.UserServiceImpl;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class UserInfoController implements Initializable {
@@ -59,33 +61,10 @@ public class UserInfoController implements Initializable {
         UserDTO userDTO = new UserDTO(id,title,name,contact,email,role);
         userService.addUser(userDTO);
 
-        loadUser(name,contact);
+        loadUsers();
         setNewID();
         clearTxtFields();
 
-    }
-
-    private void loadUser(String name, String contact){
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/view/user_card.fxml")
-            );
-
-            AnchorPane card = loader.load();
-
-            UserCardController controller = loader.getController();
-            controller.setUserData(name, contact);
-
-            int totalCards = userContainer.getChildren().size();
-
-            int column = totalCards % 3;   // 0,1,2
-            int row = totalCards / 3;      // auto increases
-
-            userContainer.add(card, column, row);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
@@ -163,9 +142,44 @@ public class UserInfoController implements Initializable {
 
     }
 
+    private void loadUsers(){
+
+        userContainer.getChildren().clear();
+
+        List<UserDTO> userDTOS = userService.getAllUsers();
+
+        for (UserDTO userDTO : userDTOS){
+
+            try {
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/view/user_card.fxml")
+                );
+
+                AnchorPane card = loader.load();
+
+                UserCardController controller = loader.getController();
+                controller.setUserData(userDTO.getName(), userDTO.getContact());
+
+                int totalCards = userContainer.getChildren().size();
+
+                int column = totalCards % 3;   // 0,1,2
+                int row = totalCards / 3;      // auto increases
+
+                userContainer.add(card, column, row);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        loadUsers();
 
         setNewID();
 

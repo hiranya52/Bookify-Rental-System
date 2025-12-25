@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserRepositoryImpl {
 
@@ -44,6 +46,36 @@ public class UserRepositoryImpl {
         preparedStatement.setObject(6,user.getRole());
 
         preparedStatement.executeUpdate();
+
+    }
+
+
+    public List<User> getAllUsers() throws SQLException {
+
+        List<User> users = new ArrayList<>();
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "Select * From users";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+
+            users.add(new User(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+
+            ));
+
+        }
+
+        return users;
 
     }
 

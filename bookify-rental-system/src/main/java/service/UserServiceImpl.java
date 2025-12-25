@@ -5,6 +5,8 @@ import model.entity.User;
 import repository.UserRepositoryImpl;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserServiceImpl {
 
@@ -39,5 +41,31 @@ public class UserServiceImpl {
         }
 
     }
+
+    public List<UserDTO> getAllUsers(){
+
+        try {
+            List<User> users = userRepository.getAllUsers();
+            List<UserDTO> userDTOS = new ArrayList<>();
+
+            for (User user : users){
+                userDTOS.add(new UserDTO(
+                        user.getId(),
+                        user.getName(),
+                        user.getTitle(),
+                        user.getContact(),
+                        user.getEmail(),
+                        user.getRole()
+                ));
+            }
+            return userDTOS;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 
 }
