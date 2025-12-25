@@ -130,8 +130,8 @@
                         <Font name="Apple LiGothic Medium" size="18.0" />
                     </font>
                 </Label>
-            <JFXComboBox fx:id="cmbBookID" layoutX="32.0" layoutY="211.0" prefWidth="200.0" promptText="     Book ID" />
-            <JFXComboBox fx:id="cmbCustomerID" layoutX="33.0" layoutY="273.0" prefWidth="200.0" promptText="     Customer ID" />
+            <JFXComboBox fx:id="cmbBookID" focusColor="#f5f5f5" layoutX="32.0" layoutY="211.0" prefWidth="200.0" promptText="     Book ID" style="-fx-border-width: 1; -fx-border-color: Black; -fx-border-radius: 4;" unFocusColor="WHITE" />
+            <JFXComboBox fx:id="cmbCustomerID" focusColor="WHITE" layoutX="33.0" layoutY="273.0" prefWidth="200.0" promptText="     Customer ID" style="-fx-border-color: Black; -fx-border-radius: 4; -fx-border-width: 1;" unFocusColor="WHITE" />
             <JFXButton layoutX="36.0" layoutY="369.0" onAction="#btnRentOnAction" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #212845;" text="Rent" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
