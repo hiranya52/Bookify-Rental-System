@@ -6,11 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import model.dto.UserDTO;
+import javafx.scene.layout.AnchorPane;
 import service.UserServiceImpl;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class UserInfoController implements Initializable {
@@ -19,6 +18,9 @@ public class UserInfoController implements Initializable {
 
     @FXML
     private JFXComboBox<String> cmbRole;
+
+    @FXML
+    private JFXComboBox<String> cmbTitle;
 
     @FXML
     private Label lblAdministrator;
@@ -30,9 +32,6 @@ public class UserInfoController implements Initializable {
     private Label lblUserID;
 
     @FXML
-    private JFXTextField txtAddress;
-
-    @FXML
     private JFXTextField txtContact;
 
     @FXML
@@ -41,32 +40,11 @@ public class UserInfoController implements Initializable {
     @FXML
     private JFXTextField txtName;
 
-    private void clearTxtFields(){
-
-        txtName.clear();
-        txtContact.clear();
-        txtAddress.clear();
-        txtEmail.clear();
-        cmbRole.setValue(null);
-
-    }
+    @FXML
+    private AnchorPane userContainer;
 
     @FXML
     void btnAddUserOnAction(ActionEvent event) {
-
-        String id = lblUserID.getText();
-        String name = txtName.getText();
-        String contact = txtContact.getText();
-        String address = txtAddress.getText();
-        String email = txtEmail.getText();
-        String role = cmbRole.getSelectionModel().getSelectedItem();
-
-        UserDTO userDTO = new UserDTO(id,name,contact,address,email,role);
-        userService.addUser(userDTO);
-
-        setNewID();
-        clearTxtFields();
-
 
     }
 
@@ -120,10 +98,13 @@ public class UserInfoController implements Initializable {
 
     }
 
+
     private void setNewID(){
+
 
         String newID = "";
         String lastId = userService.getLastUserId();
+
 
         if(lastId == null){
             newID = "E001";
@@ -144,6 +125,7 @@ public class UserInfoController implements Initializable {
         setNewID();
 
         cmbRole.getItems().addAll("Admin","Staff");
+        cmbTitle.getItems().addAll("Mr" , "Mrs");
 
     }
 
