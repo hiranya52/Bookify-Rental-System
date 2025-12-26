@@ -14,6 +14,7 @@ import model.dto.UserDTO;
 import service.UserServiceImpl;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -117,6 +118,13 @@ public class UserInfoController implements Initializable {
 
     }
 
+    private void setDate(){
+
+        LocalDate currentDate = LocalDate.now();
+        lblDate.setText(String.valueOf(currentDate));
+
+    }
+
     private void clearTxtFields(){
         cmbTitle.setValue(null);
         txtName.clear();
@@ -180,7 +188,7 @@ public class UserInfoController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         loadUsers();
-
+        setDate();
         setNewID();
 
         cmbRole.getItems().addAll("Admin","Staff");
