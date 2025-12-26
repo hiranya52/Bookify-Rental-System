@@ -17,6 +17,7 @@ import service.impl.BookService;
 import service.impl.CustomerService;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -111,8 +112,17 @@ public class RentalInfoController implements Initializable {
 
     }
 
+    private void setDate(){
+
+        LocalDate currentDate = LocalDate.now();
+        lblDate.setText(String.valueOf(currentDate));
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        setDate();
 
         ArrayList<CustomerDTO> allCustomers = customerService.getAllCustomers();
 
