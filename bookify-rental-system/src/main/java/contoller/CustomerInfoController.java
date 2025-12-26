@@ -81,6 +81,7 @@ public class CustomerInfoController implements Initializable {
         CustomerDTO customerDTO = new CustomerDTO(cusId, title, name, phoneNo, email);
         customerService.addCustomer(customerDTO);
 
+        loadCustomers();
         setNewID();
         clearTxtFields();
 
