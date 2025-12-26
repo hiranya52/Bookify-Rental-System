@@ -22,6 +22,7 @@ import service.CustomerServiceImpl;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -67,7 +68,6 @@ public class CustomerInfoController implements Initializable {
 
     @FXML
     private JFXTextField txtPhoneNo;
-
 
     @FXML
     void btnAddCustomerOnAction(ActionEvent event) {
@@ -129,6 +129,13 @@ public class CustomerInfoController implements Initializable {
 
     @FXML
     void btnUpdateCustomerOnAction(ActionEvent event) {
+
+    }
+
+    private void setDate(){
+
+        LocalDate currentDate = LocalDate.now();
+        lblDate.setText(String.valueOf(currentDate));
 
     }
 
@@ -205,7 +212,7 @@ public class CustomerInfoController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         setNewID();
-
+        setDate();
         cmbTitle.getItems().addAll("Mr", "Mrs");
 
         loadCustomers();
