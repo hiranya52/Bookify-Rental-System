@@ -158,7 +158,7 @@ public class UserInfoController implements Initializable {
                 AnchorPane card = loader.load();
 
                 UserCardController controller = loader.getController();
-                controller.setUserData(userDTO.getName(), userDTO.getContact());
+                controller.setUserData(userDTO.getTitle(),userDTO.getName(),userDTO.getRole(),userDTO.getContact());
 
                 int totalCards = userContainer.getChildren().size();
 

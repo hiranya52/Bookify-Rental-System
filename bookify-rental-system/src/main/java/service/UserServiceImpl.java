@@ -51,8 +51,8 @@ public class UserServiceImpl {
             for (User user : users){
                 userDTOS.add(new UserDTO(
                         user.getId(),
-                        user.getName(),
                         user.getTitle(),
+                        user.getName(),
                         user.getContact(),
                         user.getEmail(),
                         user.getRole()
