@@ -1,5 +1,6 @@
 package contoller;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.dto.CustomerDTO;
 import service.CustomerServiceImpl;
@@ -22,8 +24,13 @@ import java.util.ResourceBundle;
 
 public class CustomerInfoController implements Initializable {
 
-    ObservableList<CustomerDTO> customerDTOS = FXCollections.observableArrayList();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
+
+    @FXML
+    private JFXComboBox<String> cmbTitle;
+
+    @FXML
+    private AnchorPane customerContainer;
 
     @FXML
     private TableColumn<CustomerDTO, String> colContactNo;
@@ -63,16 +70,17 @@ public class CustomerInfoController implements Initializable {
     void btnAddCustomerOnAction(ActionEvent event) {
 
         String cusId = lblCusID.getText();
+        String title = cmbTitle.getSelectionModel().getSelectedItem();
         String name = txtName.getText();
         String phoneNo = txtPhoneNo.getText();
         String email = txtEmail.getText();
 
-        CustomerDTO customerDTO = new CustomerDTO(cusId, name, phoneNo, email);
+        CustomerDTO customerDTO = new CustomerDTO(cusId, title, name, phoneNo, email);
         customerService.addCustomer(customerDTO);
 
         setNewID();
         clearTxtFields();
-        loadCustomers();
+
     }
 
     @FXML
@@ -136,15 +144,10 @@ public class CustomerInfoController implements Initializable {
     }
 
     private void clearTxtFields() {
+        cmbTitle.setValue(null);
         txtName.clear();
         txtPhoneNo.clear();
         txtEmail.clear();
-    }
-
-    private void loadCustomers() {
-        customerDTOS.clear();
-        customerDTOS.addAll(customerService.getAllCustomers());
-        tblCustomerDetails.setItems(customerDTOS);
     }
 
     public void setNewID() {
@@ -168,12 +171,8 @@ public class CustomerInfoController implements Initializable {
 
         setNewID();
 
-        colCusID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colContactNo.setCellValueFactory(new PropertyValueFactory<>("phoneNo"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        cmbTitle.getItems().addAll("Mr", "Mrs");
 
-        tblCustomerDetails.setItems(customerDTOS);
-        loadCustomers();
+
     }
 }

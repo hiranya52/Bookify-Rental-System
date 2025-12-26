@@ -36,6 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
                 customerDTOS.add(
                         new CustomerDTO(
                                 customer.getId(),
+                                customer.getTitle(),
                                 customer.getName(),
                                 customer.getPhoneNo(),
                                 customer.getEmail()
@@ -57,6 +58,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         Customer customer = new Customer(
                 customerDTO.getId(),
+                customerDTO.getTitle(),
                 customerDTO.getName(),
                 customerDTO.getPhoneNo(),
                 customerDTO.getEmail()

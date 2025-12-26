@@ -16,7 +16,7 @@ public class CustomerRepositoryImpl implements CustomerRepository    {
 
         Connection connection = DBConnection.getInstance().getConnection();
 
-        String SQL = "SELECT customer_id FROM customers ORDER BY customer_id DESC LIMIT 1";
+        String SQL = "SELECT id FROM customers ORDER BY id DESC LIMIT 1";
 
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -40,9 +40,10 @@ public class CustomerRepositoryImpl implements CustomerRepository    {
 
             while (resultSet.next()) {
                 customerList.add(new Customer(
-                        resultSet.getString("customer_id"),
+                        resultSet.getString("id"),
+                        resultSet.getString("title"),
                         resultSet.getString("name"),
-                        resultSet.getString("phone"),
+                        resultSet.getString("contact"),
                         resultSet.getString("email")
                 ));
             }
@@ -53,14 +54,15 @@ public class CustomerRepositoryImpl implements CustomerRepository    {
     public void addCustomer(Customer customer) throws SQLException {
 
         Connection connection = DBConnection.getInstance().getConnection();
-        String SQL = "INSERT INTO customers VALUES (?, ?, ?, ?)";
+        String SQL = "INSERT INTO customers VALUES (?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
         preparedStatement.setObject(1, customer.getId());
-        preparedStatement.setObject(2, customer.getName());
-        preparedStatement.setObject(3, customer.getPhoneNo());
-        preparedStatement.setObject(4, customer.getEmail());
+        preparedStatement.setObject(2, customer.getTitle());
+        preparedStatement.setObject(3, customer.getName());
+        preparedStatement.setObject(4, customer.getPhoneNo());
+        preparedStatement.setObject(5, customer.getEmail());
 
         preparedStatement.executeUpdate();
 
