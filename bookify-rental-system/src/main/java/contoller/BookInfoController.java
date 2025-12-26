@@ -11,6 +11,7 @@ import model.dto.BookDTO;
 import service.BookServiceImpl;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class BookInfoController implements Initializable {
@@ -38,6 +39,12 @@ public class BookInfoController implements Initializable {
     @FXML
     private JFXTextField txtTitle;
 
+    private void setDate(){
+
+        LocalDate currentDate = LocalDate.now();
+        lblDate.setText(String.valueOf(currentDate));
+
+    }
 
     @FXML
     void btnAddBookOnAction(ActionEvent event) {
@@ -135,6 +142,7 @@ public class BookInfoController implements Initializable {
         spnQty.setValueFactory(valueFactory);
         spnQty.setEditable(true);
 
+        setDate();
         setNewID();
     }
 }
