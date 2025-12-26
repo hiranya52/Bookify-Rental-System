@@ -14,12 +14,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.dto.CustomerDTO;
+import model.dto.UserDTO;
 import service.CustomerServiceImpl;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CustomerInfoController implements Initializable {
@@ -30,7 +33,7 @@ public class CustomerInfoController implements Initializable {
     private JFXComboBox<String> cmbTitle;
 
     @FXML
-    private AnchorPane customerContainer;
+    private GridPane customerContainer;
 
     @FXML
     private TableColumn<CustomerDTO, String> colContactNo;
@@ -166,6 +169,37 @@ public class CustomerInfoController implements Initializable {
         lblCusID.setText(newId);
     }
 
+    private void loadCustomers(){
+
+        customerContainer.getChildren().clear();
+
+        List<CustomerDTO> customerDTOS = customerService.getAllCustomers();
+
+        for (CustomerDTO customerDTO : customerDTOS){
+
+            try {
+                FXMLLoader loader = new FXMLLoader( getClass().getResource("/view/customer_card.fxml") );
+
+                AnchorPane card = loader.load();
+
+                CustomerCardController controller = loader.getController();
+                controller.setCustomerData(customerDTO.getTitle(),customerDTO.getName(),customerDTO.getPhoneNo());
+
+                int totalCards = customerContainer.getChildren().size();
+
+                int column = totalCards % 3;   // 0,1,2
+                int row = totalCards / 3;      // auto increases
+
+                customerContainer.add(card, column, row);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -173,6 +207,7 @@ public class CustomerInfoController implements Initializable {
 
         cmbTitle.getItems().addAll("Mr", "Mrs");
 
+        loadCustomers();
 
     }
 }
