@@ -54,6 +54,9 @@ public class RentalInfoController implements Initializable {
     private Label lblDate;
 
     @FXML
+    private Label lblRentID;
+
+    @FXML
     private TableView<?> tblRentDetails;
 
 

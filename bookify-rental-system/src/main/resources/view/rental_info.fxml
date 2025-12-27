@@ -110,17 +110,12 @@
                         <Font name="Apple LiGothic Medium" size="28.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="50.0" fitWidth="42.0" layoutX="193.0" layoutY="57.0">
-                    <image>
-                        <Image url="@../img/AddCustomer.jpg" />
-                    </image>
-                </ImageView>
-                <Label fx:id="lblDate" layoutX="96.0" layoutY="117.0" text="2025-12-10" textFill="#212845">
+                <Label fx:id="lblDate" layoutX="96.0" layoutY="108.0" text="2025-12-10" textFill="#212845">
                     <font>
                         <Font name="Apple LiGothic Medium" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="33.0" layoutY="113.0" text="Date : " textFill="#212845">
+                <Label layoutX="33.0" layoutY="104.0" text="Date : " textFill="#212845">
                     <font>
                         <Font name="Apple LiGothic Medium" size="22.0" />
                     </font>
@@ -147,6 +142,21 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
+            <Label fx:id="lblRentID" layoutX="124.0" layoutY="140.0" text="R001" textFill="#2679ff">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="136.0" text="Rental ID : " textFill="#212845">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="22.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="55.0" fitWidth="65.0" layoutX="180.0" layoutY="62.0">
+               <image>
+                  <Image url="@../img/AddBooks.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
     </children>
