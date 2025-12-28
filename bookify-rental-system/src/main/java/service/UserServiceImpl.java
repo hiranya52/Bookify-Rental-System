@@ -3,6 +3,7 @@ package service;
 import model.dto.UserDTO;
 import model.entity.User;
 import repository.UserRepositoryImpl;
+import repository.impl.UserRepository;
 import service.impl.UserService;
 
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    UserRepositoryImpl userRepository = new UserRepositoryImpl();
+    UserRepository userRepository = new UserRepositoryImpl();
 
 
     public void addUser(UserDTO userDTO) {
@@ -66,7 +67,6 @@ public class UserServiceImpl implements UserService {
         }
 
     }
-
 
 
 }
