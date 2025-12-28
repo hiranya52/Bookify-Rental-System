@@ -79,6 +79,7 @@ public class RentalInfoController implements Initializable {
         rentalService.addRental(rentalDTO);
 
         setNewID();
+        clearFields();
 
     }
 
@@ -129,6 +130,13 @@ public class RentalInfoController implements Initializable {
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) {
+
+    }
+
+    private void clearFields(){
+
+        cmbBookID.setValue(null);
+        cmbCustomerID.setValue(null);
 
     }
 
