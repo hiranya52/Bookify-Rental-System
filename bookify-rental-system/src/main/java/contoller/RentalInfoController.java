@@ -11,8 +11,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import model.dto.BookDTO;
 import model.dto.CustomerDTO;
+import model.dto.RentalDTO;
 import service.BookServiceImpl;
 import service.CustomerServiceImpl;
+import service.RentalServiceImpl;
 import service.impl.BookService;
 import service.impl.CustomerService;
 
@@ -21,8 +23,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static java.lang.String.valueOf;
+
 public class RentalInfoController implements Initializable {
 
+    RentalServiceImpl rentalService = new RentalServiceImpl();
     CustomerService customerService = new CustomerServiceImpl();
     BookService bookService = new BookServiceImpl();
 
@@ -62,6 +67,16 @@ public class RentalInfoController implements Initializable {
 
     @FXML
     void btnRentOnAction(ActionEvent event) {
+
+        String id = lblRentID.getText();
+        String bookId = cmbBookID.getSelectionModel().getSelectedItem();
+        String customerId = cmbCustomerID.getSelectionModel().getSelectedItem();
+        String issueDate = getDate();
+        String dueDate = getDueDate();
+
+        RentalDTO rentalDTO = new RentalDTO(id,bookId,customerId,issueDate,dueDate);
+
+        rentalService.addRental(rentalDTO);
 
     }
 
@@ -115,17 +130,25 @@ public class RentalInfoController implements Initializable {
 
     }
 
-    private void setDate(){
+    private String getDueDate(){
 
         LocalDate currentDate = LocalDate.now();
-        lblDate.setText(String.valueOf(currentDate));
+        LocalDate nextWeekDate = currentDate.plusWeeks(1);
+        return nextWeekDate.toString();
+
+    }
+
+    private String getDate(){
+
+        LocalDate currentDate = LocalDate.now();
+        return String.valueOf(currentDate);
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        setDate();
+        lblDate.setText(getDate());
 
         ArrayList<CustomerDTO> allCustomers = customerService.getAllCustomers();
 
