@@ -78,6 +78,8 @@ public class RentalInfoController implements Initializable {
 
         rentalService.addRental(rentalDTO);
 
+        setNewID();
+
     }
 
     @FXML
