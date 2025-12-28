@@ -130,6 +130,22 @@ public class RentalInfoController implements Initializable {
 
     }
 
+    public void setNewID() {
+
+        String newId = "";
+        String lastCusId = rentalService.getLastRentalId();
+
+        if (lastCusId == null) {
+            newId = "R001";
+        } else {
+            int numericPart = Integer.parseInt(lastCusId.substring(1));
+            numericPart++;
+            newId = String.format("R%03d", numericPart);
+        }
+
+        lblRentID.setText(newId);
+    }
+
     private String getDueDate(){
 
         LocalDate currentDate = LocalDate.now();
@@ -147,6 +163,8 @@ public class RentalInfoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        setNewID();
 
         lblDate.setText(getDate());
 

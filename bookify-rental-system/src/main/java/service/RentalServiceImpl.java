@@ -29,5 +29,15 @@ public class RentalServiceImpl {
     }
 
 
+    public String getLastRentalId() {
+
+        try {
+            return rentalRepository.getLastRentalId();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
 }
