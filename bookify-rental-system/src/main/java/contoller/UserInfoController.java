@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import model.dto.UserDTO;
 import service.UserServiceImpl;
+import service.impl.UserService;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -20,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class UserInfoController implements Initializable {
 
-    UserServiceImpl userService = new UserServiceImpl();
+    UserService userService = new UserServiceImpl();
 
     @FXML
     private JFXComboBox<String> cmbRole;

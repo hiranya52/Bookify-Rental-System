@@ -3,12 +3,13 @@ package service;
 import model.dto.UserDTO;
 import model.entity.User;
 import repository.UserRepositoryImpl;
+import service.impl.UserService;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
 
     UserRepositoryImpl userRepository = new UserRepositoryImpl();
 
