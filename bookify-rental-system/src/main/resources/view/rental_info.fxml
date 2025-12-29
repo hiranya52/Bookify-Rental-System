@@ -93,12 +93,13 @@
         </Label>
         <AnchorPane layoutX="313.0" layoutY="158.0" prefHeight="570.0" prefWidth="518.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
             <children>
-                <TableView fx:id="tblRentDetails" layoutX="21.0" layoutY="19.0" prefHeight="529.0" prefWidth="477.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
+                <TableView fx:id="tblRentDetails" layoutX="14.0" layoutY="19.0" prefHeight="529.0" prefWidth="489.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
                     <columns>
-                        <TableColumn fx:id="colBookID" prefWidth="99.55398559570312" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Book ID" />
-                        <TableColumn fx:id="colCusID" prefWidth="121.91314697265625" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Customer ID" />
-                        <TableColumn fx:id="colIssueDate" prefWidth="120.67364501953125" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Issue Date" />
-                        <TableColumn fx:id="colDueDate" prefWidth="137.826416015625" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Due Date" />
+                        <TableColumn fx:id="colRentalID" prefWidth="81.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Rental ID" />
+                        <TableColumn fx:id="colBookID" prefWidth="81.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Book ID" />
+                        <TableColumn fx:id="colCusID" prefWidth="81.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Customer ID" />
+                        <TableColumn fx:id="colIssueDate" prefWidth="120.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Issue Date" />
+                  <TableColumn fx:id="colDueDate" prefWidth="120.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Due Date" />
                     </columns>
                 </TableView>
             </children>

@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.dto.BookDTO;
 import model.dto.CustomerDTO;
 import model.dto.RentalDTO;
@@ -41,6 +42,9 @@ public class RentalInfoController implements Initializable {
     private JFXComboBox<String> cmbCustomerID;
 
     @FXML
+    private TableColumn<?, ?> colRentalID;
+
+    @FXML
     private TableColumn<?, ?> colBookID;
 
     @FXML
@@ -65,7 +69,7 @@ public class RentalInfoController implements Initializable {
     private Label lblRentID;
 
     @FXML
-    private TableView<?> tblRentDetails;
+    private TableView<RentalDTO> tblRentDetails;
 
 
     @FXML
@@ -140,6 +144,15 @@ public class RentalInfoController implements Initializable {
 
         List<RentalDTO> rentalDTOList = rentalService.getAllRentals();
 
+        for (RentalDTO rentalDTO : rentalDTOList){
+            rentalDTOS.add(new RentalDTO(
+                    rentalDTO.getId(),
+                    rentalDTO.getBookId(),
+                    rentalDTO.getCustomerId(),
+                    rentalDTO.getIssueDate(),
+                    rentalDTO.getDueDate()
+            ));
+        }
 
     }
 
@@ -185,21 +198,17 @@ public class RentalInfoController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         setNewID();
-
         lblDate.setText(getDate());
 
         ArrayList<CustomerDTO> allCustomers = customerService.getAllCustomers();
-
         ObservableList<String> allCusIDs = FXCollections.observableArrayList();
 
         for (CustomerDTO customerDTO : allCustomers) {
             allCusIDs.add(customerDTO.getId());
         }
-
         cmbCustomerID.setItems(allCusIDs);
 
         ArrayList<BookDTO> allBooks = bookService.getAllBooks();
-
         ObservableList<String> allBookIDs = FXCollections.observableArrayList();
 
         for (BookDTO bookDTO : allBooks){
@@ -207,6 +216,16 @@ public class RentalInfoController implements Initializable {
         }
 
         cmbBookID.setItems(allBookIDs);
+
+        loadRentalDetails();
+
+        colRentalID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colBookID.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        colCusID.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        colIssueDate.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
+        colDueDate.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+
+        tblRentDetails.setItems(rentalDTOS);
 
     }
 }
