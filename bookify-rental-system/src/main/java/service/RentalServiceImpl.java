@@ -5,6 +5,8 @@ import model.entity.Rental;
 import repository.RentalRepositoryImpl;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RentalServiceImpl {
 
@@ -38,6 +40,32 @@ public class RentalServiceImpl {
         }
 
     }
+
+
+    public List<RentalDTO> getAllRentals() {
+
+        List<RentalDTO> rentalDTOS = new ArrayList<>();
+
+        try {
+            List<Rental> rentals = rentalRepository.getAllRentals();
+            for (Rental rental : rentals){
+                rentalDTOS.add(new RentalDTO(
+                        rental.getId(),
+                        rental.getBookId(),
+                        rental.getCustomerId(),
+                        rental.getIssueDate(),
+                        rental.getDueDate()
+                ));
+            }
+            return rentalDTOS;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 
 
 }

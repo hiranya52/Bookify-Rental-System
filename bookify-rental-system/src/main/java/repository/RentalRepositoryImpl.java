@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RentalRepositoryImpl {
 
@@ -46,6 +48,30 @@ public class RentalRepositoryImpl {
 
         preparedStatement.executeUpdate();
 
+    }
+
+    public List<Rental> getAllRentals() throws SQLException {
+
+        List<Rental> rentals = new ArrayList<>();
+
+        Connection connection = DBConnection.getInstance().getConnection();
+
+        String SQL = "Select * From rentals";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            rentals.add(new Rental(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5)
+            ));
+        }
+        return rentals;
     }
 
 

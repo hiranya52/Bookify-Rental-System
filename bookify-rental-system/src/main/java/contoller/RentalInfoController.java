@@ -21,6 +21,7 @@ import service.impl.CustomerService;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static java.lang.String.valueOf;
@@ -30,6 +31,8 @@ public class RentalInfoController implements Initializable {
     RentalServiceImpl rentalService = new RentalServiceImpl();
     CustomerService customerService = new CustomerServiceImpl();
     BookService bookService = new BookServiceImpl();
+
+    ObservableList<RentalDTO> rentalDTOS = FXCollections.observableArrayList();
 
     @FXML
     private JFXComboBox<String> cmbBookID;
@@ -130,6 +133,13 @@ public class RentalInfoController implements Initializable {
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) {
+
+    }
+
+    private void loadRentalDetails(){
+
+        List<RentalDTO> rentalDTOList = rentalService.getAllRentals();
+
 
     }
 
