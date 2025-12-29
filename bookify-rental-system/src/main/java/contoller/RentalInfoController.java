@@ -227,5 +227,11 @@ public class RentalInfoController implements Initializable {
 
         tblRentDetails.setItems(rentalDTOS);
 
+        tblRentDetails.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            lblRentID.setText(newValue.getId());
+            cmbBookID.setValue(newValue.getBookId());
+            cmbCustomerID.setValue(newValue.getCustomerId());
+        });
+
     }
 }
