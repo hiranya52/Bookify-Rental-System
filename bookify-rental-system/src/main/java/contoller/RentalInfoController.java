@@ -73,24 +73,6 @@ public class RentalInfoController implements Initializable {
 
 
     @FXML
-    void btnRentOnAction(ActionEvent event) {
-
-        String id = lblRentID.getText();
-        String bookId = cmbBookID.getSelectionModel().getSelectedItem();
-        String customerId = cmbCustomerID.getSelectionModel().getSelectedItem();
-        String issueDate = getDate();
-        String dueDate = getDueDate();
-
-        RentalDTO rentalDTO = new RentalDTO(id,bookId,customerId,issueDate,dueDate);
-
-        rentalService.addRental(rentalDTO);
-
-        setNewID();
-        clearFields();
-
-    }
-
-    @FXML
     void btnBooksOnAction(ActionEvent event) {
 
     }
@@ -130,8 +112,45 @@ public class RentalInfoController implements Initializable {
 
     }
 
+    //----------------------Add Rental----------------------//
+    @FXML
+    void btnRentOnAction(ActionEvent event) {
+
+        String id = lblRentID.getText();
+        String bookId = cmbBookID.getValue();
+        String customerId = cmbCustomerID.getValue();
+        String issueDate = getDate();
+        String dueDate = getDueDate();
+
+        RentalDTO rentalDTO = new RentalDTO(id,bookId,customerId,issueDate,dueDate);
+
+        rentalService.addRental(rentalDTO);
+
+        setNewID();
+        clearFields();
+
+        loadRentalDetails();
+
+    }
+
+
+//----------------------Update Rental----------------------//
     @FXML
     void btnUpdateBookOnAction(ActionEvent event) {
+
+        if ( lblRentID.getText() != null || cmbBookID.getValue() != null || cmbCustomerID.getValue() != null){
+
+            String rentalID = lblRentID.getText();
+            String bookID = cmbBookID.getValue();
+            String cusID = cmbCustomerID.getValue();
+
+            System.out.println(rentalID +"  "+ bookID +"  "+ cusID);
+
+            rentalService.updateRental(rentalID,bookID,cusID);
+
+            loadRentalDetails();
+
+        }
 
     }
 
@@ -140,7 +159,11 @@ public class RentalInfoController implements Initializable {
 
     }
 
+
+//----------------------Load Rental Details----------------------//
     private void loadRentalDetails(){
+
+        rentalDTOS.clear();
 
         List<RentalDTO> rentalDTOList = rentalService.getAllRentals();
 
@@ -154,8 +177,12 @@ public class RentalInfoController implements Initializable {
             ));
         }
 
+        tblRentDetails.setItems(rentalDTOS);
+
     }
 
+
+//----------------------Clear Fields----------------------//
     private void clearFields(){
 
         cmbBookID.setValue(null);
@@ -163,6 +190,7 @@ public class RentalInfoController implements Initializable {
 
     }
 
+//----------------------set New ID----------------------//
     public void setNewID() {
 
         String newId = "";
@@ -179,6 +207,7 @@ public class RentalInfoController implements Initializable {
         lblRentID.setText(newId);
     }
 
+//----------------------Get Due Date----------------------//
     private String getDueDate(){
 
         LocalDate currentDate = LocalDate.now();
@@ -187,6 +216,7 @@ public class RentalInfoController implements Initializable {
 
     }
 
+//----------------------Get Date----------------------//
     private String getDate(){
 
         LocalDate currentDate = LocalDate.now();
@@ -194,6 +224,8 @@ public class RentalInfoController implements Initializable {
 
     }
 
+
+//----------------------Initialize----------------------//
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -224,8 +256,6 @@ public class RentalInfoController implements Initializable {
         colCusID.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         colIssueDate.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
         colDueDate.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
-
-        tblRentDetails.setItems(rentalDTOS);
 
         tblRentDetails.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             lblRentID.setText(newValue.getId());

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class RentalRepositoryImpl {
 
-
+//----------------------Get Last Rental ID----------------------//
     public String getLastRentalId() throws SQLException {
 
         String lastId = null;
@@ -31,7 +31,7 @@ public class RentalRepositoryImpl {
         return lastId;
     }
 
-
+//----------------------Add Rental----------------------//
     public void addRental(Rental rental) throws SQLException {
 
         Connection connection = DBConnection.getInstance().getConnection();
@@ -50,6 +50,7 @@ public class RentalRepositoryImpl {
 
     }
 
+//----------------------Get All Rentals----------------------//
     public List<Rental> getAllRentals() throws SQLException {
 
         List<Rental> rentals = new ArrayList<>();
@@ -73,6 +74,24 @@ public class RentalRepositoryImpl {
         }
         return rentals;
     }
+
+//----------------------Update Rental----------------------//
+    public void updateRental(String rentalID, String bookID, String cusID) throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+
+        String SQL = "UPDATE rentals SET book_id = ?, customer_id = ? WHERE id = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        preparedStatement.setObject(1,bookID);
+        preparedStatement.setObject(2,cusID);
+        preparedStatement.setObject(3,rentalID);
+
+        preparedStatement.executeUpdate();
+
+    }
+
 
 
 }

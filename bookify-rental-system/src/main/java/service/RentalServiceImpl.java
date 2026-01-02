@@ -12,6 +12,7 @@ public class RentalServiceImpl {
 
     RentalRepositoryImpl rentalRepository = new RentalRepositoryImpl();
 
+//----------------------Add Rental----------------------//
     public void addRental(RentalDTO rentalDTO) {
 
         Rental rental = new Rental(
@@ -30,7 +31,7 @@ public class RentalServiceImpl {
 
     }
 
-
+//----------------------Get Last Rentals----------------------//
     public String getLastRentalId() {
 
         try {
@@ -41,7 +42,7 @@ public class RentalServiceImpl {
 
     }
 
-
+//----------------------Get All Rentals----------------------//
     public List<RentalDTO> getAllRentals() {
 
         List<RentalDTO> rentalDTOS = new ArrayList<>();
@@ -65,7 +66,15 @@ public class RentalServiceImpl {
 
     }
 
+//----------------------Update Rental----------------------//
+    public void updateRental(String rentalID, String bookID, String cusID) {
 
+        try {
+            rentalRepository.updateRental(rentalID,bookID,cusID);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
+    }
 
 }
