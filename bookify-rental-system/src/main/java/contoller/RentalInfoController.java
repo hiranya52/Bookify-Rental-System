@@ -133,7 +133,6 @@ public class RentalInfoController implements Initializable {
 
     }
 
-
 //----------------------Update Rental----------------------//
     @FXML
     void btnUpdateBookOnAction(ActionEvent event) {
@@ -146,6 +145,8 @@ public class RentalInfoController implements Initializable {
 
             rentalService.updateRental(rentalID,bookID,cusID);
 
+            clearFields();
+            setNewID();
             loadRentalDetails();
 
         }
