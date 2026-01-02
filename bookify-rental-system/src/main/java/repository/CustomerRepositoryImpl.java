@@ -1,6 +1,7 @@
 package repository;
 
 import db.DBConnection;
+import model.dto.CustomerDTO;
 import model.entity.Customer;
 import repository.impl.CustomerRepository;
 
@@ -66,6 +67,30 @@ public class CustomerRepositoryImpl implements CustomerRepository    {
 
         preparedStatement.executeUpdate();
 
+    }
+
+    public Customer getCustomer(String phoneNo) throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+
+        String SQL = "SELECT * FROM customers WHERE contact = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        preparedStatement.setString(1,phoneNo);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            return new Customer(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5)
+            );
+        }
+        return null;
     }
 
 

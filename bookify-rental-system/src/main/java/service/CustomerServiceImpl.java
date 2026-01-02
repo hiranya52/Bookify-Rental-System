@@ -72,4 +72,25 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+
+    public CustomerDTO getCustomer(String phoneNo) {
+
+        try {
+            Customer customer =  customerRepository.getCustomer(phoneNo);
+
+            return new CustomerDTO(
+                    customer.getId(),
+                    customer.getTitle(),
+                    customer.getName(),
+                    customer.getPhoneNo(),
+                    customer.getEmail()
+            );
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 }

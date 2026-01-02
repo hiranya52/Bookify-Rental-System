@@ -1,5 +1,6 @@
 package repository.impl;
 
+import model.dto.CustomerDTO;
 import model.entity.Customer;
 
 import java.sql.SQLException;
@@ -10,5 +11,6 @@ public interface CustomerRepository {
     public String getLastCustomerId() throws SQLException;
     public List<Customer> getAllCustomers() throws SQLException;
     public void addCustomer(Customer customer) throws SQLException;
+    public Customer getCustomer(String phoneNo) throws SQLException;
 
 }

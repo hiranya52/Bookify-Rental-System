@@ -211,8 +211,14 @@ public class CustomerInfoController implements Initializable {
 
     public void loadSelectedCustomer(String phoneNo){
 
-        if (phoneNo != null){
-            txtPhoneNo.setText(phoneNo);
+        if ( phoneNo != null ){
+            CustomerDTO customerDTO = customerService.getCustomer(phoneNo);
+
+            lblCusID.setText(customerDTO.getId());
+            cmbTitle.setValue(customerDTO.getTitle());
+            txtName.setText(customerDTO.getName());
+            txtPhoneNo.setText(customerDTO.getPhoneNo());
+            txtEmail.setText(customerDTO.getEmail());
         }
 
     }

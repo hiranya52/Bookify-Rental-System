@@ -9,5 +9,6 @@ public interface CustomerService {
     public String getLastCustomerId();
     public ArrayList<CustomerDTO> getAllCustomers();
     public void addCustomer(CustomerDTO customerDTO);
+    public CustomerDTO getCustomer(String phoneNo);
 
 }
