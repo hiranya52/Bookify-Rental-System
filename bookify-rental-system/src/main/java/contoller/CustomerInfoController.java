@@ -123,8 +123,16 @@ public class CustomerInfoController implements Initializable {
 
     }
 
+//----------------------Delete Customer----------------------//
     @FXML
     void btnDeleteCustomerOnAction(ActionEvent event) {
+
+        String id = lblCusID.getText();
+        customerService.deleteCustomer(id);
+
+        loadCustomers();
+        setDate();
+        clearTxtFields();
 
     }
 

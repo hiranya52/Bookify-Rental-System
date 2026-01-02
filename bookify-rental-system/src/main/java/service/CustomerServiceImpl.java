@@ -95,6 +95,15 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
 
+    public void deleteCustomer(String id) {
+
+        try {
+            customerRepository.deleteCustomer(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 
 }

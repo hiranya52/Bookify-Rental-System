@@ -112,5 +112,19 @@ public class CustomerRepositoryImpl implements CustomerRepository    {
     }
 
 
+    public void deleteCustomer(String id) throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+
+        String SQl = "DELETE FROM customers WHERE id = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQl);
+
+        preparedStatement.setObject(1,id);
+
+        preparedStatement.executeUpdate();
+
+    }
+
 
 }
