@@ -3,14 +3,16 @@ package service;
 import model.dto.RentalDTO;
 import model.entity.Rental;
 import repository.RentalRepositoryImpl;
+import repository.impl.RentalRepository;
+import service.impl.RentalService;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RentalServiceImpl {
+public class RentalServiceImpl implements RentalService {
 
-    RentalRepositoryImpl rentalRepository = new RentalRepositoryImpl();
+    RentalRepository rentalRepository = new RentalRepositoryImpl();
 
 //----------------------Add Rental----------------------//
     public void addRental(RentalDTO rentalDTO) {

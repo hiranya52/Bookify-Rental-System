@@ -18,6 +18,7 @@ import service.CustomerServiceImpl;
 import service.RentalServiceImpl;
 import service.impl.BookService;
 import service.impl.CustomerService;
+import service.impl.RentalService;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -29,7 +30,7 @@ import static java.lang.String.valueOf;
 
 public class RentalInfoController implements Initializable {
 
-    RentalServiceImpl rentalService = new RentalServiceImpl();
+    RentalService rentalService = new RentalServiceImpl();
     CustomerService customerService = new CustomerServiceImpl();
     BookService bookService = new BookServiceImpl();
 
