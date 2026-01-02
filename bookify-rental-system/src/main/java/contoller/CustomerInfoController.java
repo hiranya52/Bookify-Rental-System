@@ -69,6 +69,7 @@ public class CustomerInfoController implements Initializable {
     @FXML
     private JFXTextField txtPhoneNo;
 
+//----------------------Add Customer----------------------//
     @FXML
     void btnAddCustomerOnAction(ActionEvent event) {
 
@@ -127,18 +128,35 @@ public class CustomerInfoController implements Initializable {
 
     }
 
+//----------------------Update Customer----------------------//
     @FXML
     void btnUpdateCustomerOnAction(ActionEvent event) {
 
+        if ( cmbTitle.getValue() != null && txtName.getText() != null && txtPhoneNo.getText() != null && txtEmail.getText() != null ) {
+
+            String id = lblCusID.getText();
+            String title = cmbTitle.getValue();
+            String name = txtName.getText();
+            String phoneNo = txtPhoneNo.getText();
+            String email = txtEmail.getText();
+
+            customerService.updateCustomer(id,title,name,phoneNo,email);
+
+            loadCustomers();
+            setNewID();
+            clearTxtFields();
+
+        }
+
     }
 
+//----------------------Set Data----------------------//
     private void setDate(){
-
         LocalDate currentDate = LocalDate.now();
         lblDate.setText(String.valueOf(currentDate));
-
     }
 
+//----------------------Log Out----------------------//
     @FXML
     void btnLogOutOnAction(ActionEvent event) {
         try {
@@ -154,6 +172,7 @@ public class CustomerInfoController implements Initializable {
         }
     }
 
+//----------------------Clear Text Fields----------------------//
     private void clearTxtFields() {
         cmbTitle.setValue(null);
         txtName.clear();
@@ -161,8 +180,8 @@ public class CustomerInfoController implements Initializable {
         txtEmail.clear();
     }
 
+//----------------------Set New ID----------------------//
     public void setNewID() {
-
         String newId = "";
         String lastCusId = customerService.getLastCustomerId();
 
@@ -177,19 +196,15 @@ public class CustomerInfoController implements Initializable {
         lblCusID.setText(newId);
     }
 
+//----------------------Load Customers----------------------//
     private void loadCustomers(){
-
         customerContainer.getChildren().clear();
-
         List<CustomerDTO> customerDTOS = customerService.getAllCustomers();
 
         for (CustomerDTO customerDTO : customerDTOS){
-
             try {
                 FXMLLoader loader = new FXMLLoader( getClass().getResource("/view/customer_card.fxml") );
-
                 AnchorPane card = loader.load();
-
                 CustomerCardController controller = loader.getController();
                 controller.setCustomerData(customerDTO.getTitle(),customerDTO.getName(),customerDTO.getPhoneNo());
 
@@ -204,13 +219,11 @@ public class CustomerInfoController implements Initializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
-
     }
 
+//----------------------Load Selected Customer----------------------//
     public void loadSelectedCustomer(String phoneNo){
-
         if ( phoneNo != null ){
             CustomerDTO customerDTO = customerService.getCustomer(phoneNo);
 
@@ -220,9 +233,9 @@ public class CustomerInfoController implements Initializable {
             txtPhoneNo.setText(customerDTO.getPhoneNo());
             txtEmail.setText(customerDTO.getEmail());
         }
-
     }
 
+//----------------------Initialize----------------------//
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

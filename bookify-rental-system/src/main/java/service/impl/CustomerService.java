@@ -10,5 +10,6 @@ public interface CustomerService {
     public ArrayList<CustomerDTO> getAllCustomers();
     public void addCustomer(CustomerDTO customerDTO);
     public CustomerDTO getCustomer(String phoneNo);
+    public void updateCustomer(String id,String title, String name, String phoneNo, String email);
 
 }

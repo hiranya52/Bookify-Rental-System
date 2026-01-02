@@ -93,7 +93,7 @@ public class RentalRepositoryImpl implements RentalRepository {
 
     }
 
-
+    //----------------------Delete Rental----------------------//
     public void deleteRental(String id) throws SQLException {
 
         Connection connection = DBConnection.getInstance().getConnection();

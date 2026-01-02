@@ -12,5 +12,6 @@ public interface CustomerRepository {
     public List<Customer> getAllCustomers() throws SQLException;
     public void addCustomer(Customer customer) throws SQLException;
     public Customer getCustomer(String phoneNo) throws SQLException;
+    public void updateCustomer(String id, String title, String name, String phoneNo, String email) throws SQLException;
 
 }

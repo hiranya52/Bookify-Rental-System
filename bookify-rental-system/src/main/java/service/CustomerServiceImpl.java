@@ -13,7 +13,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl();
 
-
+//----------------------Get Last Customer ID----------------------//
     public String getLastCustomerId(){
 
         try {
@@ -24,13 +24,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+//----------------------Get All Customers----------------------//
     public ArrayList<CustomerDTO> getAllCustomers(){
 
         ArrayList<CustomerDTO> customerDTOS = new ArrayList<>();
-
         try {
             List<Customer> customerList = customerRepository.getAllCustomers();
-
             for(Customer customer : customerList){
 
                 customerDTOS.add(
@@ -42,18 +41,14 @@ public class CustomerServiceImpl implements CustomerService {
                                 customer.getEmail()
                         )
                 );
-
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         return customerDTOS;
-
     }
 
-
+//----------------------Add Customer----------------------//
     public void addCustomer(CustomerDTO customerDTO) {
 
         Customer customer = new Customer(
@@ -63,16 +58,14 @@ public class CustomerServiceImpl implements CustomerService {
                 customerDTO.getPhoneNo(),
                 customerDTO.getEmail()
         );
-
         try {
             customerRepository.addCustomer(customer);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
-
+//----------------------Get Customer----------------------//
     public CustomerDTO getCustomer(String phoneNo) {
 
         try {
@@ -85,12 +78,23 @@ public class CustomerServiceImpl implements CustomerService {
                     customer.getPhoneNo(),
                     customer.getEmail()
             );
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+//----------------------Update Customer----------------------//
+    public void updateCustomer(String id,String title, String name, String phoneNo, String email) {
+
+        try {
+            customerRepository.updateCustomer(id, title, name, phoneNo, email);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
     }
+
+
 
 
 }
