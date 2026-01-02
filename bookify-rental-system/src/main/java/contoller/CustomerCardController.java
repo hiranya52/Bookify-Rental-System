@@ -5,7 +5,15 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import javafx.scene.input.MouseEvent;
+
 public class CustomerCardController {
+
+    private CustomerInfoController customerInfoController;
+
+    public void setCustomerInfoController(CustomerInfoController controller) {
+        this.customerInfoController = controller;
+    }
 
     @FXML
     private ImageView imgCustomer;
@@ -28,6 +36,14 @@ public class CustomerCardController {
 
         lblName.setText(name);
         lblContact.setText(phone);
+
+    }
+
+    @FXML
+    void customerCardOnAction(MouseEvent event) {
+
+        String phoneNo = lblContact.getText();
+        customerInfoController.loadSelectedCustomer(phoneNo);
 
     }
 

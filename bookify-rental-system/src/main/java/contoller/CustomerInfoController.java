@@ -193,8 +193,9 @@ public class CustomerInfoController implements Initializable {
                 CustomerCardController controller = loader.getController();
                 controller.setCustomerData(customerDTO.getTitle(),customerDTO.getName(),customerDTO.getPhoneNo());
 
-                int totalCards = customerContainer.getChildren().size();
+                controller.setCustomerInfoController(this);
 
+                int totalCards = customerContainer.getChildren().size();
                 int column = totalCards % 3;   // 0,1,2
                 int row = totalCards / 3;      // auto increases
 
@@ -204,6 +205,14 @@ public class CustomerInfoController implements Initializable {
                 e.printStackTrace();
             }
 
+        }
+
+    }
+
+    public void loadSelectedCustomer(String phoneNo){
+
+        if (phoneNo != null){
+            txtPhoneNo.setText(phoneNo);
         }
 
     }
