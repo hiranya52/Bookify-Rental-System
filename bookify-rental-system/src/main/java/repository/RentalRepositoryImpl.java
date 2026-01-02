@@ -93,5 +93,19 @@ public class RentalRepositoryImpl {
     }
 
 
+    public void deleteRental(String id) throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "DELETE FROM rentals WHERE id = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        preparedStatement.setObject(1,id);
+
+        preparedStatement.executeUpdate();
+
+
+    }
+
 
 }

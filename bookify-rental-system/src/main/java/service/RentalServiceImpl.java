@@ -77,4 +77,15 @@ public class RentalServiceImpl {
 
     }
 
+    public void deleteRental(String id) {
+
+        try {
+            rentalRepository.deleteRental(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 }

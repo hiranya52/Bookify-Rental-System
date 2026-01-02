@@ -107,8 +107,20 @@ public class RentalInfoController implements Initializable {
 
     }
 
+    //----------------------Add Rental----------------------//
     @FXML
-    void btnDeleteBookOnAction(ActionEvent event) {
+    void btnDeleteRentalOnAction(ActionEvent event) {
+
+        if ( lblRentID.getText() != null ) {
+
+            String id = lblRentID.getText();
+            rentalService.deleteRental(id);
+
+            loadRentalDetails();
+            setNewID();
+            clearFields();
+
+        }
 
     }
 
@@ -128,16 +140,15 @@ public class RentalInfoController implements Initializable {
 
         setNewID();
         clearFields();
-
         loadRentalDetails();
 
     }
 
 //----------------------Update Rental----------------------//
     @FXML
-    void btnUpdateBookOnAction(ActionEvent event) {
+    void btnUpdateRentalOnAction(ActionEvent event) {
 
-        if ( lblRentID.getText() != null || cmbBookID.getValue() != null || cmbCustomerID.getValue() != null){
+        if (lblRentID.getText() != null || cmbBookID.getValue() != null || cmbCustomerID.getValue() != null){
 
             String rentalID = lblRentID.getText();
             String bookID = cmbBookID.getValue();
