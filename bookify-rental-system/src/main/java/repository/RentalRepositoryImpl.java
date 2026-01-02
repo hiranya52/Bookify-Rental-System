@@ -2,6 +2,7 @@ package repository;
 
 import db.DBConnection;
 import model.entity.Rental;
+import repository.impl.RentalRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RentalRepositoryImpl {
+public class RentalRepositoryImpl implements RentalRepository {
 
 //----------------------Get Last Rental ID----------------------//
     public String getLastRentalId() throws SQLException {
