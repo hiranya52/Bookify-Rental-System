@@ -144,21 +144,17 @@ public class RentalInfoController implements Initializable {
             String bookID = cmbBookID.getValue();
             String cusID = cmbCustomerID.getValue();
 
-            System.out.println(rentalID +"  "+ bookID +"  "+ cusID);
-
             rentalService.updateRental(rentalID,bookID,cusID);
 
             loadRentalDetails();
 
         }
-
     }
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) {
 
     }
-
 
 //----------------------Load Rental Details----------------------//
     private void loadRentalDetails(){
@@ -258,9 +254,13 @@ public class RentalInfoController implements Initializable {
         colDueDate.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
 
         tblRentDetails.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            lblRentID.setText(newValue.getId());
-            cmbBookID.setValue(newValue.getBookId());
-            cmbCustomerID.setValue(newValue.getCustomerId());
+
+            if(newValue != null){
+                lblRentID.setText(newValue.getId());
+                cmbBookID.setValue(newValue.getBookId());
+                cmbCustomerID.setValue(newValue.getCustomerId());
+            }
+
         });
 
     }
