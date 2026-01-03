@@ -5,11 +5,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import model.dto.BookDTO;
 import model.dto.CustomerDTO;
 import model.dto.RentalDTO;
@@ -20,13 +23,13 @@ import service.impl.BookService;
 import service.impl.CustomerService;
 import service.impl.RentalService;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static java.lang.String.valueOf;
 
 public class RentalInfoController implements Initializable {
 
@@ -75,22 +78,58 @@ public class RentalInfoController implements Initializable {
 
     @FXML
     void btnBooksOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/book_info.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void btnCustomersOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/customer_info.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/admin_dashboard.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void btnRentalsOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/rental_info.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -105,7 +144,16 @@ public class RentalInfoController implements Initializable {
 
     @FXML
     void btnUserManagementOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/user_info.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //----------------------Add Rental----------------------//
@@ -166,7 +214,16 @@ public class RentalInfoController implements Initializable {
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login_form.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //----------------------Load Rental Details----------------------//
