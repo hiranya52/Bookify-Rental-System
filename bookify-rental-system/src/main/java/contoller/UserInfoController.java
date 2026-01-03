@@ -179,7 +179,16 @@ public class UserInfoController implements Initializable {
 
     public void loadSelectedUser(String phoneNo){
 
+        UserDTO userDTO = userService.getUser(phoneNo);
 
+        if ( userDTO != null ){
+            lblUserID.setText(userDTO.getId());
+            cmbTitle.setValue(userDTO.getTitle());
+            txtName.setText(userDTO.getName());
+            txtContact.setText(userDTO.getContact());
+            txtEmail.setText(userDTO.getEmail());
+            cmbRole.setValue(userDTO.getRole());
+        }
 
     }
 

@@ -68,5 +68,25 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public UserDTO getUser(String phoneNo) {
+
+        try {
+            User user = userRepository.getUser(phoneNo);
+
+            return new UserDTO(
+                    user.getId(),
+                    user.getTitle(),
+                    user.getName(),
+                    user.getContact(),
+                    user.getEmail(),
+                    user.getRole()
+            );
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }

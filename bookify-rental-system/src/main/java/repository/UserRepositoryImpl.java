@@ -80,7 +80,28 @@ public class UserRepositoryImpl implements UserRepository {
 
     }
 
+    @Override
+    public User getUser(String phoneNo) throws SQLException {
 
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "SELECT * FROM users WHERE contact = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setObject(1,phoneNo);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            return new User(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6)
+            );
+        }
+        return null;
+    }
 
 
 }
