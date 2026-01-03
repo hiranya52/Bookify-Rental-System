@@ -5,6 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import javafx.scene.input.MouseEvent;
+
 public class UserCardController {
 
     @FXML
@@ -15,6 +17,12 @@ public class UserCardController {
 
     @FXML
     private Label lblName;
+
+    private UserInfoController userInfoController;
+
+    public void setUserInfoController(UserInfoController userInfoController){
+        this.userInfoController=userInfoController;
+    }
 
     public void setUserData(String title, String name, String role, String phone) {
 
@@ -35,5 +43,11 @@ public class UserCardController {
         lblName.setText(name);
         lblContact.setText(phone);
     }
+
+    @FXML
+    void userCardOnAction(MouseEvent event) {
+        userInfoController.loadSelectedUser(lblContact.getText());
+    }
+
 
 }

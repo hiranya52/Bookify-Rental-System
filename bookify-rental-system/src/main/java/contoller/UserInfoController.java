@@ -154,33 +154,32 @@ public class UserInfoController implements Initializable {
     private void loadUsers(){
 
         userContainer.getChildren().clear();
-
         List<UserDTO> userDTOS = userService.getAllUsers();
-
         for (UserDTO userDTO : userDTOS){
-
             try {
                 FXMLLoader loader = new FXMLLoader(
                         getClass().getResource("/view/user_card.fxml")
                 );
-
                 AnchorPane card = loader.load();
-
                 UserCardController controller = loader.getController();
                 controller.setUserData(userDTO.getTitle(),userDTO.getName(),userDTO.getRole(),userDTO.getContact());
 
-                int totalCards = userContainer.getChildren().size();
+                controller.setUserInfoController(this);
 
+                int totalCards = userContainer.getChildren().size();
                 int column = totalCards % 3;   // 0,1,2
                 int row = totalCards / 3;      // auto increases
 
                 userContainer.add(card, column, row);
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
+    }
+
+    public void loadSelectedUser(String phoneNo){
+
+
 
     }
 
