@@ -5,8 +5,9 @@ import java.util.List;
 
 public interface UserService {
 
-    public void addUser(UserDTO userDTO);
-    public String getLastUserId();
-    public List<UserDTO> getAllUsers();
+    void addUser(UserDTO userDTO);
+    String getLastUserId();
+    List<UserDTO> getAllUsers();
     UserDTO getUser(String phoneNo);
+    void updateUser(String id, String title, String name, String contact, String email, String role);
 }

@@ -50,6 +50,7 @@ public class UserInfoController implements Initializable {
     @FXML
     private GridPane userContainer;
 
+//----------------------Add User----------------------//
     @FXML
     void btnAddUserOnAction(ActionEvent event) {
 
@@ -109,8 +110,26 @@ public class UserInfoController implements Initializable {
 
     }
 
+//----------------------Update User----------------------//
     @FXML
     void btnUpdateUserOnAction(ActionEvent event) {
+
+        if( cmbTitle.getValue() != null && txtName.getText() != null && txtContact.getText() != null && txtEmail.getText() != null && cmbRole.getValue() != null ){
+
+            String id = lblUserID.getText();
+            String title = cmbTitle.getValue();
+            String name = txtName.getText();
+            String contact = txtContact.getText();
+            String email = txtEmail.getText();
+            String role = cmbRole.getValue();
+
+            userService.updateUser(id,title,name,contact,email,role);
+
+            loadUsers();
+            setNewID();
+            clearTxtFields();
+
+        }
 
     }
 
@@ -119,13 +138,13 @@ public class UserInfoController implements Initializable {
 
     }
 
+//----------------------Set Date----------------------//
     private void setDate(){
-
         LocalDate currentDate = LocalDate.now();
         lblDate.setText(String.valueOf(currentDate));
-
     }
 
+//----------------------Clear Text Fields----------------------//
     private void clearTxtFields(){
         cmbTitle.setValue(null);
         txtName.clear();
@@ -134,7 +153,7 @@ public class UserInfoController implements Initializable {
         cmbRole.setValue(null);
     }
 
-
+//----------------------Set New ID----------------------//
     private void setNewID(){
 
         String newID = "";
@@ -148,9 +167,9 @@ public class UserInfoController implements Initializable {
             newID = String.format("E%03d", numericPart);
         }
         lblUserID.setText(newID);
-
     }
 
+//----------------------Load Users----------------------//
     private void loadUsers(){
 
         userContainer.getChildren().clear();
@@ -177,6 +196,7 @@ public class UserInfoController implements Initializable {
         }
     }
 
+//----------------------Load Selected User----------------------//
     public void loadSelectedUser(String phoneNo){
 
         UserDTO userDTO = userService.getUser(phoneNo);
@@ -192,7 +212,7 @@ public class UserInfoController implements Initializable {
 
     }
 
-
+//----------------------Initialize----------------------//
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

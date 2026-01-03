@@ -13,7 +13,7 @@ import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
 
-
+//----------------------Get Last User ID----------------------//
     public String getLastUserId() throws SQLException {
 
         String lastId = null;
@@ -30,7 +30,7 @@ public class UserRepositoryImpl implements UserRepository {
         return lastId;
     }
 
-
+//----------------------Add User----------------------//
     public void addUser(User user) throws SQLException {
 
         Connection connection = DBConnection.getInstance().getConnection();
@@ -50,7 +50,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     }
 
-
+//----------------------Get All Users----------------------//
     public List<User> getAllUsers() throws SQLException {
 
         List<User> users = new ArrayList<>();
@@ -59,11 +59,8 @@ public class UserRepositoryImpl implements UserRepository {
         String SQL = "Select * From users";
 
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-
         ResultSet resultSet = preparedStatement.executeQuery();
-
         while (resultSet.next()){
-
             users.add(new User(
                     resultSet.getString(1),
                     resultSet.getString(2),
@@ -71,15 +68,12 @@ public class UserRepositoryImpl implements UserRepository {
                     resultSet.getString(4),
                     resultSet.getString(5),
                     resultSet.getString(6)
-
             ));
-
         }
-
         return users;
-
     }
 
+//----------------------Get User----------------------//
     @Override
     public User getUser(String phoneNo) throws SQLException {
 
@@ -101,6 +95,25 @@ public class UserRepositoryImpl implements UserRepository {
             );
         }
         return null;
+    }
+
+//----------------------Update User----------------------//
+    @Override
+    public void updateUser(String id, String title, String name, String contact, String email, String role)  throws SQLException{
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "UPDATE users SET title = ?, name = ?, contact = ?, email = ?, role = ? WHERE id = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setObject(1,title);
+        preparedStatement.setObject(2,name);
+        preparedStatement.setObject(3,contact);
+        preparedStatement.setObject(4,email);
+        preparedStatement.setObject(5,role);
+        preparedStatement.setObject(6,id);
+
+        preparedStatement.executeUpdate();
+
     }
 
 

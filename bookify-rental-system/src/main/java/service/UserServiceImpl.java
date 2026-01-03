@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
 
     UserRepository userRepository = new UserRepositoryImpl();
 
-
+//----------------------Add User----------------------//
     public void addUser(UserDTO userDTO) {
 
         User user = new User(
@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
+//----------------------Get Last User ID----------------------//
     public String getLastUserId() {
 
         try {
@@ -44,6 +45,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
+//----------------------Get All Users----------------------//
     public List<UserDTO> getAllUsers(){
 
         try {
@@ -65,9 +67,9 @@ public class UserServiceImpl implements UserService {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
+//----------------------Get User----------------------//
     @Override
     public UserDTO getUser(String phoneNo) {
 
@@ -86,6 +88,18 @@ public class UserServiceImpl implements UserService {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+//----------------------Update User----------------------//
+    @Override
+    public void updateUser(String id, String title, String name, String contact, String email, String role) {
+
+        try {
+            userRepository.updateUser(id,title,name,contact,email,role);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 
