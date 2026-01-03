@@ -86,11 +86,6 @@ public class UserInfoController implements Initializable {
     }
 
     @FXML
-    void btnDeleteUserOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void btnLogOutOnAction(ActionEvent event) {
 
     }
@@ -107,6 +102,19 @@ public class UserInfoController implements Initializable {
 
     @FXML
     void btnReturnsOnAction(ActionEvent event) {
+
+    }
+
+//----------------------Delete User----------------------//
+    @FXML
+    void btnDeleteUserOnAction(ActionEvent event) {
+
+        String id = lblUserID.getText();
+        userService.deleteUser(id);
+
+        loadUsers();
+        setNewID();
+        clearTxtFields();
 
     }
 

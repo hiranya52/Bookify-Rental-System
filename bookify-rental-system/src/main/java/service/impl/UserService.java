@@ -10,4 +10,6 @@ public interface UserService {
     List<UserDTO> getAllUsers();
     UserDTO getUser(String phoneNo);
     void updateUser(String id, String title, String name, String contact, String email, String role);
+    void deleteUser(String id);
+
 }
