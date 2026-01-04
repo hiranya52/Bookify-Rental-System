@@ -225,7 +225,17 @@ public class ReturnInfoController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
+        loadRentalDetails();
 
+        colRentalID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colBookID.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        colCustomerID.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        colIssueDate.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
+        colDueDate.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+        colOverDueDate.setCellValueFactory(new PropertyValueFactory<>("overdueDays"));
+        colFine.setCellValueFactory(new PropertyValueFactory<>("fine"));
+
+        tblRentDetails.setItems(returnDTOS);
 
     }
 
