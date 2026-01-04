@@ -14,7 +14,7 @@ public class Return {
     private String customerId;
     private String issueDate;
     private String dueDate;
-    private String overdueDate;
+    private int overdueDays;
     private double fine;
 
 }

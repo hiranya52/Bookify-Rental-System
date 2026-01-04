@@ -100,7 +100,7 @@
                         <TableColumn fx:id="colCustomerID" prefWidth="75.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Customer ID" />
                         <TableColumn fx:id="colIssueDate" prefWidth="84.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Issue Date" />
                         <TableColumn fx:id="colDueDate" prefWidth="84.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Due Date" />
-                  <TableColumn fx:id="colOverDueDate" prefWidth="84.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Overdue Date" />
+                  <TableColumn fx:id="colOverDueDate" prefWidth="84.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Overdue Days" />
                   <TableColumn fx:id="colFine" prefWidth="71.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Fine" />
                     </columns>
                 </TableView>

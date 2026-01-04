@@ -11,18 +11,23 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.dto.RentalDTO;
+import model.dto.ReturnDTO;
 import service.RentalServiceImpl;
 import service.impl.RentalService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ReturnInfoController implements Initializable {
 
-    ObservableList<RentalDTO> rentalDTOS = FXCollections.observableArrayList();
+    ObservableList<ReturnDTO> returnDTOS = FXCollections.observableArrayList();
 
     RentalService rentalService = new RentalServiceImpl();
 
@@ -60,7 +65,7 @@ public class ReturnInfoController implements Initializable {
     private Label lblRentID;
 
     @FXML
-    private TableView<?> tblRentDetails;
+    private TableView<ReturnDTO> tblRentDetails;
 
     @FXML
     private JFXTextField txtBookId;
@@ -174,14 +179,51 @@ public class ReturnInfoController implements Initializable {
         }
     }
 
+//----------------------Complete Rental----------------------//
     @FXML
     void btnCompleteRentalOnAction(ActionEvent event) {
 
     }
 
+//----------------------Get Overdue Days----------------------//
+    private int getOverdueDays(LocalDate issueDate) {
+        LocalDate today = LocalDate.now();
+        LocalDate dueDate = issueDate.plusDays(7);
 
+        if (today.isAfter(dueDate)) {
+            return (int) ChronoUnit.DAYS.between(dueDate, today);
+        }
+        return 0;
+    }
+
+
+    //----------------------Load Rental Details----------------------//
+    private void loadRentalDetails(){
+
+        returnDTOS.clear();
+        List<RentalDTO> rentalDTOList = rentalService.getAllRentals();
+
+        for ( RentalDTO rentalDTO : rentalDTOList ) {
+
+            int overdueDays = getOverdueDays(LocalDate.parse(rentalDTO.getIssueDate()));
+            double fine = overdueDays * 50; // 50 per day
+
+            returnDTOS.add(new ReturnDTO(
+                    rentalDTO.getId(),
+                    rentalDTO.getBookId(),
+                    rentalDTO.getCustomerId(),
+                    rentalDTO.getIssueDate(),
+                    rentalDTO.getDueDate(),
+                    overdueDays,
+                    fine
+            ));
+        }
+    }
+
+//----------------------Initialize----------------------//
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
 
 
