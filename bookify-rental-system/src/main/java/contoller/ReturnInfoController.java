@@ -1,24 +1,36 @@
 package contoller;
 
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import model.dto.RentalDTO;
+import service.RentalServiceImpl;
+import service.impl.RentalService;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ReturnInfoController {
+public class ReturnInfoController implements Initializable {
+
+    ObservableList<RentalDTO> rentalDTOS = FXCollections.observableArrayList();
+
+    RentalService rentalService = new RentalServiceImpl();
 
     @FXML
     private TableColumn<?, ?> colBookID;
 
     @FXML
-    private TableColumn<?, ?> colCustomer;
+    private TableColumn<?, ?> colCustomerID;
 
     @FXML
     private TableColumn<?, ?> colDueDate;
@@ -166,5 +178,15 @@ public class ReturnInfoController {
     void btnCompleteRentalOnAction(ActionEvent event) {
 
     }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+
+    }
+
+
 
 }

@@ -44,11 +44,6 @@ public class StaffDashboardController {
     }
 
     @FXML
-    void btnReportsOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void btnReturnsOnAction(ActionEvent event) {
 
     }

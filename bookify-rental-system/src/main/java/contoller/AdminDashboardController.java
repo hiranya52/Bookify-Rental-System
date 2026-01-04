@@ -86,6 +86,11 @@ public class AdminDashboardController {
 
     @FXML
     void btnReportsOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnReturnsOnAction(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/returns_info.fxml"));
             Scene scene = new Scene(loader.load());
@@ -96,11 +101,6 @@ public class AdminDashboardController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @FXML
-    void btnReturnsOnAction(ActionEvent event) {
-
     }
 
     @FXML

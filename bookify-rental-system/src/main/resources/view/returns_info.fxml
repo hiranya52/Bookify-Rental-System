@@ -95,18 +95,18 @@
             <children>
                 <TableView fx:id="tblRentDetails" layoutX="14.0" layoutY="19.0" prefHeight="529.0" prefWidth="553.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
                     <columns>
-                        <TableColumn fx:id="colRentalID" prefWidth="56.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Rental ID" />
-                        <TableColumn fx:id="colBookID" prefWidth="56.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Book ID" />
-                        <TableColumn fx:id="colCustomer" prefWidth="100.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Customer" />
+                        <TableColumn fx:id="colRentalID" prefWidth="75.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Rental ID" />
+                        <TableColumn fx:id="colBookID" prefWidth="75.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Book ID" />
+                        <TableColumn fx:id="colCustomerID" prefWidth="75.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Customer ID" />
                         <TableColumn fx:id="colIssueDate" prefWidth="84.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Issue Date" />
                         <TableColumn fx:id="colDueDate" prefWidth="84.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Due Date" />
                   <TableColumn fx:id="colOverDueDate" prefWidth="84.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Overdue Date" />
-                  <TableColumn fx:id="colFine" prefWidth="86.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Fine" />
+                  <TableColumn fx:id="colFine" prefWidth="71.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Fine" />
                     </columns>
                 </TableView>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="917.0" layoutY="160.0" prefHeight="570.0" prefWidth="183.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+        <AnchorPane layoutX="917.0" layoutY="160.0" prefHeight="570.0" prefWidth="193.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
             <children>
                 <Label layoutX="19.0" layoutY="69.0" text="Rental Details" textFill="#212845">
                     <font>
@@ -128,7 +128,7 @@
                         <Font name="Apple LiGothic Medium" size="18.0" />
                     </font>
                 </Label>
-                <JFXButton layoutX="21.0" layoutY="427.0" onAction="#btnCompleteRentalOnAction" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #212845;" text="Complete Rental" textFill="WHITE">
+                <JFXButton layoutX="21.0" layoutY="420.0" onAction="#btnCompleteRentalOnAction" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #212845;" text="Complete Rental" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font>
@@ -143,12 +143,12 @@
                         <Font name="Apple LiGothic Medium" size="22.0" />
                     </font>
                 </Label>
-            <Label layoutX="27.0" layoutY="197.0" prefHeight="17.0" prefWidth="70.0" text="Customer" />
-            <Label layoutX="29.0" layoutY="262.0" prefHeight="17.0" prefWidth="50.0" text="Book id" />
+            <Label layoutX="27.0" layoutY="198.0" prefHeight="17.0" prefWidth="70.0" text="Customer" />
+            <Label layoutX="29.0" layoutY="264.0" prefHeight="17.0" prefWidth="50.0" text="Book id" />
             <Label layoutX="31.0" layoutY="326.0" prefHeight="17.0" prefWidth="50.0" text="Fine" />
             <JFXTextField fx:id="txtCustomer" layoutX="22.0" layoutY="220.0" prefHeight="18.0" prefWidth="140.0" />
             <JFXTextField fx:id="txtBookId" layoutX="22.0" layoutY="287.0" prefHeight="18.0" prefWidth="140.0" />
-            <JFXTextField fx:id="txtFine" layoutX="22.0" layoutY="354.0" prefHeight="18.0" prefWidth="140.0" />
+            <JFXTextField fx:id="txtFine" layoutX="23.0" layoutY="348.0" prefHeight="18.0" prefWidth="140.0" />
             </children>
         </AnchorPane>
     </children>
