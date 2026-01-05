@@ -237,7 +237,19 @@ public class ReturnInfoController implements Initializable {
 
         tblRentDetails.setItems(returnDTOS);
 
-    }
+        tblRentDetails.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+
+            if ( newValue != null ){
+                lblRentID.setText(newValue.getId());
+                txtCustomer.setText(newValue.getCustomerId());
+                txtBookId.setText(newValue.getBookId());
+                txtFine.setText(String.valueOf(newValue.getFine()));
+            }
+
+        });
+
+
+        }
 
 
 
