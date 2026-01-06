@@ -51,6 +51,7 @@ public class BookInfoController implements Initializable {
 
     }
 
+//----------------------Add Books----------------------//
     @FXML
     void btnAddBookOnAction(ActionEvent event) {
 
@@ -170,16 +171,19 @@ public class BookInfoController implements Initializable {
         }
     }
 
+//----------------------Delete Book----------------------//
     @FXML
     void btnDeleteBookOnAction(ActionEvent event) {
 
     }
 
+//----------------------Update Book----------------------//
     @FXML
     void btnUpdateBookOnAction(ActionEvent event) {
 
     }
 
+//----------------------Clear Text Fields----------------------//
     private void cleartxtFields() {
         txtTitle.clear();
         txtAuthor.clear();
@@ -187,14 +191,13 @@ public class BookInfoController implements Initializable {
         spnQty.getValueFactory().setValue(1);
     }
 
+//----------------------Set New ID----------------------//
     public void setNewID() {
 
         String lastBookID = bookService.getLastBookID();
-
         if (lastBookID == null) {
             lastBookID = "B001";
         }
-
         int numericPart = Integer.parseInt(lastBookID.substring(1));
         numericPart++;
 
@@ -202,6 +205,8 @@ public class BookInfoController implements Initializable {
         lblBookID.setText(newID);
     }
 
+
+//----------------------Initialize----------------------//
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
