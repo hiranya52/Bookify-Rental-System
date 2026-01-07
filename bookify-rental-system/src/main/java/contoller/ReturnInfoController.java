@@ -183,6 +183,14 @@ public class ReturnInfoController implements Initializable {
         }
     }
 
+//----------------------Clear Text Fields----------------------//
+    private void clearTxtFields(){
+        lblRentID.setText("");
+        txtCustomer.setText("");
+        txtBookId.setText("");
+        txtFine.setText("");
+    }
+
 //----------------------Complete Rental----------------------//
     @FXML
     void btnCompleteRentalOnAction(ActionEvent event) {
