@@ -190,7 +190,20 @@ public class ReturnInfoController implements Initializable {
         String id = lblRentID.getText();
         RentalDTO rentalDTO = rentalService.getRental(id);
 
+        int overdueDays = getOverdueDays(LocalDate.parse(rentalDTO.getIssueDate()));
+        int fine = overdueDays * 50;
 
+        ReturnDTO returnDTO = new ReturnDTO(
+                getLastReturnID(),
+                rentalDTO.getBookId(),
+                rentalDTO.getCustomerId(),
+                rentalDTO.getIssueDate(),
+                rentalDTO.getDueDate(),
+                overdueDays,
+                fine
+        );
+
+        returnService.addReturn(returnDTO);
 
     }
 

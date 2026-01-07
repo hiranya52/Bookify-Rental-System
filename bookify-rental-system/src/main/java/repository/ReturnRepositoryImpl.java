@@ -1,6 +1,7 @@
 package repository;
 
 import db.DBConnection;
+import model.entity.Return;
 import repository.impl.RentalRepository;
 import repository.impl.ReturnRepository;
 
@@ -27,6 +28,24 @@ public class ReturnRepositoryImpl implements ReturnRepository {
         return lastId;
     }
 
+    @Override
+    public void addReturn(Return aReturn) throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "INSERT INTO returns VALUES (?, ?, ?, ?, ?, ?, ?) ";
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+        preparedStatement.setObject(1,aReturn.getId());
+        preparedStatement.setObject(2,aReturn.getBookId());
+        preparedStatement.setObject(3,aReturn.getCustomerId());
+        preparedStatement.setObject(4,aReturn.getIssueDate());
+        preparedStatement.setObject(5,aReturn.getDueDate());
+        preparedStatement.setObject(6,aReturn.getOverdueDays());
+        preparedStatement.setObject(7,aReturn.getFine());
+
+        preparedStatement.executeUpdate();
+
+    }
 
 
 }
