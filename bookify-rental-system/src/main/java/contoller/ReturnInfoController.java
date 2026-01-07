@@ -210,8 +210,10 @@ public class ReturnInfoController implements Initializable {
                 overdueDays,
                 fine
         );
-
         returnService.addReturn(returnDTO);
+        rentalService.deleteRental(id);
+        loadRentalDetails();
+        clearTxtFields();
 
     }
 
