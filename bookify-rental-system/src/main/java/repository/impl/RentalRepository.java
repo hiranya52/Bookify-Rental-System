@@ -12,5 +12,5 @@ public interface RentalRepository {
     public List<Rental> getAllRentals() throws SQLException;
     public void updateRental(String rentalID, String bookID, String cusID) throws SQLException;
     public void deleteRental(String id) throws SQLException;
-
+    Rental getRental(String id) throws SQLException;
 }

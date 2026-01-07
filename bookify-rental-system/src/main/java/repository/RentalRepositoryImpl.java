@@ -108,5 +108,27 @@ public class RentalRepositoryImpl implements RentalRepository {
 
     }
 
+    @Override
+    public Rental getRental(String id) throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "SELECT * FROM rentals WHERE id = ? ";
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setObject(1,id);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            return new Rental(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5)
+            );
+        }
+        return null;
+    }
+
 
 }

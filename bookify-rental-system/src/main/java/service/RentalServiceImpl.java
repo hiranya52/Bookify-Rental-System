@@ -89,5 +89,23 @@ public class RentalServiceImpl implements RentalService {
 
     }
 
+    @Override
+    public RentalDTO getRental(String id) {
+
+        try {
+            Rental rental = rentalRepository.getRental(id);
+
+            return new RentalDTO(
+                    rental.getId(),
+                    rental.getBookId(),
+                    rental.getCustomerId(),
+                    rental.getIssueDate(),
+                    rental.getDueDate()
+            );
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }

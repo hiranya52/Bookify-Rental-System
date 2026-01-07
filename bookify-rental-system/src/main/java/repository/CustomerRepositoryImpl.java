@@ -72,13 +72,9 @@ public class CustomerRepositoryImpl implements CustomerRepository    {
     public Customer getCustomer(String phoneNo) throws SQLException {
 
         Connection connection = DBConnection.getInstance().getConnection();
-
         String SQL = "SELECT * FROM customers WHERE contact = ?";
-
         PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-
         preparedStatement.setString(1,phoneNo);
-
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()){

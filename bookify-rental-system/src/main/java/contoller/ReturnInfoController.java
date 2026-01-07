@@ -183,6 +183,8 @@ public class ReturnInfoController implements Initializable {
     @FXML
     void btnCompleteRentalOnAction(ActionEvent event) {
 
+
+
     }
 
 //----------------------Get Overdue Days----------------------//
@@ -206,7 +208,7 @@ public class ReturnInfoController implements Initializable {
         for ( RentalDTO rentalDTO : rentalDTOList ) {
 
             int overdueDays = getOverdueDays(LocalDate.parse(rentalDTO.getIssueDate()));
-            double fine = overdueDays * 50; // 50 per day
+            double fine = overdueDays * 50;
 
             returnDTOS.add(new ReturnDTO(
                     rentalDTO.getId(),
