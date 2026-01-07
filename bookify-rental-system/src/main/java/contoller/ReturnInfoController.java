@@ -16,7 +16,9 @@ import javafx.stage.Stage;
 import model.dto.RentalDTO;
 import model.dto.ReturnDTO;
 import service.RentalServiceImpl;
+import service.ReturnServiceImpl;
 import service.impl.RentalService;
+import service.impl.ReturnService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,6 +32,8 @@ public class ReturnInfoController implements Initializable {
     ObservableList<ReturnDTO> returnDTOS = FXCollections.observableArrayList();
 
     RentalService rentalService = new RentalServiceImpl();
+
+    ReturnService returnService = new ReturnServiceImpl();
 
     @FXML
     private TableColumn<?, ?> colBookID;
@@ -183,8 +187,27 @@ public class ReturnInfoController implements Initializable {
     @FXML
     void btnCompleteRentalOnAction(ActionEvent event) {
 
+        String id = lblRentID.getText();
+        RentalDTO rentalDTO = rentalService.getRental(id);
 
 
+
+    }
+
+//----------------------Get Last Return ID----------------------//
+    public String getLastReturnID(){
+
+        String newId = "";
+        String lastCusId = returnService.getLastReturnId();
+
+        if (lastCusId == null) {
+            newId = "R001";
+        } else {
+            int numericPart = Integer.parseInt(lastCusId.substring(1));
+            numericPart++;
+            newId = String.format("R%03d", numericPart);
+        }
+        return newId;
     }
 
 //----------------------Get Overdue Days----------------------//
