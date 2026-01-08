@@ -13,10 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminContentPaneController implements Initializable {
-
-    @FXML
-    private AnchorPane contentPane;
+public class StaffContentPaneController implements Initializable {
 
     @FXML
     private JFXButton btnBooks;
@@ -31,13 +28,10 @@ public class AdminContentPaneController implements Initializable {
     private JFXButton btnRentals;
 
     @FXML
-    private JFXButton btnReports;
-
-    @FXML
     private JFXButton btnReturns;
 
     @FXML
-    private JFXButton btnUserManagement;
+    private AnchorPane contentPane;
 
     @FXML
     void btnBooksOnAction(ActionEvent event) {
@@ -46,8 +40,6 @@ public class AdminContentPaneController implements Initializable {
         btnCustomers.setStyle("-fx-text-fill: white;");
         btnRentals.setStyle("-fx-text-fill: white;");
         btnReturns.setStyle("-fx-text-fill: white;");
-        btnReports.setStyle("-fx-text-fill: white;");
-        btnUserManagement.setStyle("-fx-text-fill: white;");
         loadUI("/view/book_info.fxml");
     }
 
@@ -58,8 +50,6 @@ public class AdminContentPaneController implements Initializable {
         btnCustomers.setStyle("-fx-text-fill: #e83c75;");
         btnRentals.setStyle("-fx-text-fill: white;");
         btnReturns.setStyle("-fx-text-fill: white;");
-        btnReports.setStyle("-fx-text-fill: white;");
-        btnUserManagement.setStyle("-fx-text-fill: white;");
         loadUI("/view/customer_info.fxml");
     }
 
@@ -70,8 +60,6 @@ public class AdminContentPaneController implements Initializable {
         btnCustomers.setStyle("-fx-text-fill: white;");
         btnRentals.setStyle("-fx-text-fill: white;");
         btnReturns.setStyle("-fx-text-fill: white;");
-        btnReports.setStyle("-fx-text-fill: white;");
-        btnUserManagement.setStyle("-fx-text-fill: white;");
         loadUI("/view/admin_dashboard.fxml");
     }
 
@@ -96,22 +84,7 @@ public class AdminContentPaneController implements Initializable {
         btnCustomers.setStyle("-fx-text-fill: white;");
         btnRentals.setStyle("-fx-text-fill: #e83c75;");
         btnReturns.setStyle("-fx-text-fill: white;");
-        btnReports.setStyle("-fx-text-fill: white;");
-        btnUserManagement.setStyle("-fx-text-fill: white;");
         loadUI("/view/rental_info.fxml");
-    }
-
-    @FXML
-    void btnReportsOnAction(ActionEvent event) {
-        btnDashboard.setStyle("-fx-text-fill: white;");
-        btnBooks.setStyle("-fx-text-fill: white;");
-        btnCustomers.setStyle("-fx-text-fill: white;");
-        btnRentals.setStyle("-fx-text-fill: white;");
-        btnReturns.setStyle("-fx-text-fill: white;");
-        btnReports.setStyle("-fx-text-fill: #e83c75;");
-        btnUserManagement.setStyle("-fx-text-fill: white;");
-        loadUI("/view/reports_info.fxml");
-
     }
 
     @FXML
@@ -121,21 +94,7 @@ public class AdminContentPaneController implements Initializable {
         btnCustomers.setStyle("-fx-text-fill: white;");
         btnRentals.setStyle("-fx-text-fill: white;");
         btnReturns.setStyle("-fx-text-fill: #e83c75;");
-        btnReports.setStyle("-fx-text-fill: white;");
-        btnUserManagement.setStyle("-fx-text-fill: white;");
         loadUI("/view/returns_info.fxml");
-    }
-
-    @FXML
-    void btnUserManagementOnAction(ActionEvent event) {
-        btnDashboard.setStyle("-fx-text-fill: white;");
-        btnBooks.setStyle("-fx-text-fill: white;");
-        btnCustomers.setStyle("-fx-text-fill: white;");
-        btnRentals.setStyle("-fx-text-fill: white;");
-        btnReturns.setStyle("-fx-text-fill: white;");
-        btnReports.setStyle("-fx-text-fill: white;");
-        btnUserManagement.setStyle("-fx-text-fill: #e83c75;");
-        loadUI("/view/user_info.fxml");
     }
 
 //-------------------Load UI-------------------//
@@ -148,7 +107,6 @@ public class AdminContentPaneController implements Initializable {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

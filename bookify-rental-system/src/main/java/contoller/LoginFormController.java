@@ -49,7 +49,7 @@ public class LoginFormController implements Initializable {
         }else if (role.equals("Staff")){
             if (username.equals("Staff") && password.equals("Staff123")){
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/staff_dashboard.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/staff_content_pane.fxml"));
                     Scene scene = new Scene(loader.load());
 
                     Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
