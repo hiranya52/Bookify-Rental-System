@@ -238,6 +238,7 @@ public class ReturnInfoController implements Initializable {
         returnService.addReturn(returnDTO);
         rentalService.deleteRental(id);
         loadRentalDetails();
+        loadCompletedReturnDetails();
         clearTxtFields();
 
     }
@@ -293,6 +294,26 @@ public class ReturnInfoController implements Initializable {
         }
     }
 
+//----------------------Load Completed Return Details----------------------//
+    public void loadCompletedReturnDetails(){
+
+        completeReturnDTOS.clear();
+        List<ReturnDTO> returnDTOS = returnService.getAllReturns();
+
+        for ( ReturnDTO returnDTO : returnDTOS ) {
+            completeReturnDTOS.add(new ReturnDTO(
+                    returnDTO.getId(),
+                    returnDTO.getBookId(),
+                    returnDTO.getCustomerId(),
+                    returnDTO.getIssueDate(),
+                    returnDTO.getDueDate(),
+                    returnDTO.getOverdueDays(),
+                    returnDTO.getFine()
+
+            ));
+        }
+
+    }
 
 //----------------------Initialize----------------------//
     @Override
@@ -300,6 +321,7 @@ public class ReturnInfoController implements Initializable {
 
 
         loadRentalDetails();
+        loadCompletedReturnDetails();
 
         colRentalID.setCellValueFactory(new PropertyValueFactory<>("id"));
         colBookID.setCellValueFactory(new PropertyValueFactory<>("bookId"));
@@ -310,6 +332,16 @@ public class ReturnInfoController implements Initializable {
         colFine.setCellValueFactory(new PropertyValueFactory<>("fine"));
 
         tblRentDetails.setItems(returnDTOS);
+
+        colCRentalID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colCBookID.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        colCCustomerID.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        colCIssueDate.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
+        colCDueDate.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+        colCOverDueDate.setCellValueFactory(new PropertyValueFactory<>("overdueDays"));
+        colCFine.setCellValueFactory(new PropertyValueFactory<>("fine"));
+
+        tblCompleteReturnsDetails.setItems(completeReturnDTOS);
 
         tblRentDetails.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 
