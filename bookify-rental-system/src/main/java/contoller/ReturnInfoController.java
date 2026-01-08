@@ -36,6 +36,27 @@ public class ReturnInfoController implements Initializable {
     ReturnService returnService = new ReturnServiceImpl();
 
     @FXML
+    private TableColumn<?, ?> colCBookID;
+
+    @FXML
+    private TableColumn<?, ?> colCCustomerID;
+
+    @FXML
+    private TableColumn<?, ?> colCDueDate;
+
+    @FXML
+    private TableColumn<?, ?> colCFine;
+
+    @FXML
+    private TableColumn<?, ?> colCIssueDate;
+
+    @FXML
+    private TableColumn<?, ?> colCOverDueDate;
+
+    @FXML
+    private TableColumn<?, ?> colCRentalID;
+
+    @FXML
     private TableColumn<?, ?> colBookID;
 
     @FXML
@@ -70,6 +91,9 @@ public class ReturnInfoController implements Initializable {
 
     @FXML
     private TableView<ReturnDTO> tblRentDetails;
+
+    @FXML
+    private TableView<ReturnDTO> tblCompleteReturnsDetails;
 
     @FXML
     private JFXTextField txtBookId;

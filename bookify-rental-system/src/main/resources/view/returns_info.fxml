@@ -93,7 +93,7 @@
         </Label>
         <AnchorPane layoutX="313.0" layoutY="161.0" prefHeight="570.0" prefWidth="582.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
             <children>
-                <TableView fx:id="tblRentDetails" layoutX="14.0" layoutY="19.0" prefHeight="529.0" prefWidth="553.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
+                <TableView fx:id="tblRentDetails" layoutX="14.0" layoutY="53.0" prefHeight="220.0" prefWidth="553.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
                     <columns>
                         <TableColumn fx:id="colRentalID" prefWidth="75.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Rental ID" />
                         <TableColumn fx:id="colBookID" prefWidth="75.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Book ID" />
@@ -104,6 +104,27 @@
                   <TableColumn fx:id="colFine" prefWidth="71.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Fine" />
                     </columns>
                 </TableView>
+            <TableView fx:id="tblCompleteReturnsDetails" layoutX="15.0" layoutY="323.0" prefHeight="220.0" prefWidth="553.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
+               <columns>
+                  <TableColumn fx:id="colCRentalID" prefWidth="75.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Rental ID" />
+                  <TableColumn fx:id="colCBookID" prefWidth="75.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Book ID" />
+                  <TableColumn fx:id="colCCustomerID" prefWidth="75.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Customer ID" />
+                  <TableColumn fx:id="colCIssueDate" prefWidth="84.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Issue Date" />
+                  <TableColumn fx:id="colCDueDate" prefWidth="84.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Due Date" />
+                  <TableColumn fx:id="colCOverDueDate" prefWidth="84.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Overdue Days" />
+                  <TableColumn fx:id="colCFine" prefWidth="71.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Fine" />
+               </columns>
+            </TableView>
+            <Label layoutX="29.0" layoutY="290.0" text="Completed Returns" textFill="#e83c75" underline="true">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="20.0" text="Rentals" textFill="#e83c75">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="22.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="917.0" layoutY="160.0" prefHeight="570.0" prefWidth="193.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
