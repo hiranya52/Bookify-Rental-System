@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="785.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contoller.ReportsInfoController">
+    <children>
+        <AnchorPane layoutX="95.0" layoutY="175.0" prefHeight="110.0" prefWidth="200.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+            <children>
+                <Label layoutX="49.0" layoutY="14.0" text="Total Books" textFill="#e83c75">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="txtTotalBooks" layoutX="108.0" layoutY="48.0" text="0" textFill="#e83c75">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="30.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="35.0" layoutY="44.0">
+                    <image>
+                        <Image url="@../img/Total%20Books.png" />
+                    </image>
+                </ImageView>
+            </children></AnchorPane>
+        <AnchorPane layoutX="340.0" layoutY="171.0" prefHeight="110.0" prefWidth="200.0" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+            <children>
+                <Label layoutX="46.0" layoutY="16.0" text="Active Rentals" textFill="#e83c75">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="24.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="47.0" fitWidth="95.0" layoutX="19.0" layoutY="47.0">
+                    <image>
+                        <Image url="@../img/Active%20Rentals.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="txtActiveRentals" layoutX="112.0" layoutY="49.0" text="0" textFill="#e83c75">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="30.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="587.0" layoutY="169.0" prefHeight="110.0" prefWidth="200.0" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+            <children>
+                <Label layoutX="31.0" layoutY="16.0" text="Overdue Rentals" textFill="#e83c75">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="24.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="48.0" fitWidth="54.0" layoutX="32.0" layoutY="46.0">
+                    <image>
+                        <Image url="@../img/Overdue%20Rentals.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="txtOverdueRentals" layoutX="104.0" layoutY="49.0" text="0" textFill="#e83c75">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="30.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Label layoutX="74.0" layoutY="100.0" text="Reports" textFill="#212845">
+            <font>
+                <Font name="Apple LiGothic Medium" size="30.0" />
+            </font>
+        </Label>
+        <Label layoutX="676.0" layoutY="104.0" text="Home/Reports" textFill="#212845">
+            <font>
+                <Font name="Apple LiGothic Medium" size="16.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="60.0" layoutY="364.0" prefHeight="340.0" prefWidth="370.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+            <children>
+                <Label layoutX="24.0" layoutY="22.0" text="Recent Rentals" textFill="#212845">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Line endX="46.0" layoutX="120.0" layoutY="53.0" startX="-100.0" stroke="#212845" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="462.0" layoutY="364.0" prefHeight="340.0" prefWidth="370.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+            <children>
+                <Label layoutX="24.0" layoutY="21.0" text="Popular Categories" textFill="#212845">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Line endX="39.5" layoutX="173.0" layoutY="52.0" startX="-149.00006103515625" stroke="#212845" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
