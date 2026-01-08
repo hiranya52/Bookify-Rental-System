@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReturnRepositoryImpl implements ReturnRepository {
 
@@ -46,5 +48,31 @@ public class ReturnRepositoryImpl implements ReturnRepository {
         preparedStatement.executeUpdate();
 
     }
+
+    public List<Return> getAllReturns() throws SQLException {
+
+        Connection connection = DBConnection.getInstance().getConnection();
+        String SQL = "SELECT * FROM returns";
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        List<Return> returns = new ArrayList<>();
+
+        while (resultSet.next()){
+            returns.add(new Return(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getInt(6),
+                    resultSet.getDouble(7)
+            ));
+        }
+        return returns;
+    }
+
+
+
 
 }

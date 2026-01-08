@@ -30,6 +30,7 @@ import java.util.ResourceBundle;
 public class ReturnInfoController implements Initializable {
 
     ObservableList<ReturnDTO> returnDTOS = FXCollections.observableArrayList();
+    ObservableList<ReturnDTO> completeReturnDTOS = FXCollections.observableArrayList();
 
     RentalService rentalService = new RentalServiceImpl();
 
@@ -291,6 +292,7 @@ public class ReturnInfoController implements Initializable {
             ));
         }
     }
+
 
 //----------------------Initialize----------------------//
     @Override
