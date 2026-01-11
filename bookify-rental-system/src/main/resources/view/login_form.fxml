@@ -17,23 +17,27 @@
             <Image url="@../img/Bookify%20Rental.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="109.0" fitWidth="140.0" layoutX="797.0" layoutY="125.0">
-         <image>
-            <Image url="@../img/Bookify%20Reental%20Logo.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="724.0" layoutY="254.0" text="Bookify Rental" textFill="#212845">
+      <AnchorPane layoutX="665.0" layoutY="113.0" prefHeight="563.0" prefWidth="417.0" style="-fx-background-color: #304060; -fx-border-radius: 200;" styleClass="anchor-pane-2" stylesheets="@../styles/style.css">
+         <children>
+            <JFXTextField fx:id="txtUsername" focusColor="WHITE" layoutX="89.0" layoutY="219.0" prefHeight="32.0" prefWidth="240.0" promptText="     Username" style="-fx-background-color: white;" unFocusColor="WHITE" />
+            <JFXPasswordField fx:id="txtPassword" focusColor="WHITE" layoutX="87.0" layoutY="291.0" prefHeight="32.0" prefWidth="240.0" promptText="     Password" style="-fx-background-color: white;" unFocusColor="WHITE" />
+            <JFXComboBox fx:id="cmbRole" focusColor="WHITE" layoutX="89.0" layoutY="369.0" prefHeight="32.0" prefWidth="240.0" promptText="     Role" style="-fx-background-color: white;" unFocusColor="WHITE" />
+            <JFXButton layoutX="102.0" layoutY="444.0" onAction="#btnLogInOnAction" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #E83C75;" text="Log In" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="70.0" fitWidth="88.0" layoutX="159.0" layoutY="52.0">
+               <image>
+                  <Image url="@../img/Bookify%20Reental%20Logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="746.0" layoutY="256.0" text="Bookify Rental" textFill="WHITE">
          <font>
-            <Font name="Apple LiGothic Medium" size="58.0" />
+            <Font name="Apple LiGothic Medium" size="50.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtUsername" focusColor="#212845" layoutX="713.0" layoutY="358.0" prefHeight="32.0" prefWidth="320.0" promptText="Username" />
-      <JFXPasswordField fx:id="txtPassword" focusColor="#212845" layoutX="709.0" layoutY="443.0" prefHeight="32.0" prefWidth="320.0" promptText="Password" />
-      <JFXComboBox fx:id="cmbRole" focusColor="#212845" layoutX="711.0" layoutY="531.0" prefHeight="32.0" prefWidth="320.0" promptText="Role" />
-      <JFXButton layoutX="722.0" layoutY="610.0" onAction="#btnLogInOnAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #E83C75;" text="Log In" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </JFXButton>
    </children>
 </AnchorPane>
