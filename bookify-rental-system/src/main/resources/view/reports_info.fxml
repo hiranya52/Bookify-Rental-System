@@ -9,19 +9,19 @@
 
 <AnchorPane prefHeight="785.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contoller.ReportsInfoController">
     <children>
-        <AnchorPane layoutX="95.0" layoutY="175.0" prefHeight="174.0" prefWidth="200.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+        <AnchorPane layoutX="95.0" layoutY="175.0" prefHeight="110.0" prefWidth="200.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
             <children>
-                <Label layoutX="57.0" layoutY="47.0" text="Total Books" textFill="#e83c75">
+                <Label layoutX="57.0" layoutY="16.0" text="Total Books" textFill="#e83c75">
                     <font>
                         <Font name="Apple LiGothic Medium" size="24.0" />
                     </font>
                 </Label>
-                <Label fx:id="txtTotalBooks" layoutX="112.0" layoutY="83.0" text="0" textFill="#e83c75">
+                <Label fx:id="txtTotalBooks" layoutX="112.0" layoutY="52.0" text="0" textFill="#e83c75">
                     <font>
                         <Font name="Apple LiGothic Medium" size="30.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="46.0" layoutY="75.0">
+                <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="46.0" layoutY="44.0">
                     <image>
                         <Image url="@../img/Total%20Books.png" />
                     </image>
@@ -75,19 +75,33 @@
                 <Font name="Apple LiGothic Medium" size="16.0" />
             </font>
         </Label>
-        <AnchorPane layoutX="60.0" layoutY="429.0" prefHeight="275.0" prefWidth="370.0" style="-fx-background-color: White;" styleClass="anchor-pane-2" stylesheets="@../styles/style.css">
+        <AnchorPane layoutX="106.0" layoutY="349.0" prefHeight="164.0" prefWidth="312.0" style="-fx-background-color: White;" styleClass="anchor-pane-2" stylesheets="@../styles/style.css">
             <children>
-                <Label layoutX="109.0" layoutY="111.0" text="Rentals Report" textFill="#212845">
+                <Label layoutX="79.0" layoutY="28.0" text="Rentals Report" textFill="#212845">
                     <font>
                         <Font name="Apple LiGothic Medium" size="28.0" />
                     </font>
                 </Label>
-            <JFXButton layoutX="95.0" layoutY="196.0" style="-fx-background-color: #212845;" text="Generate Report" textFill="WHITE">
+            <JFXButton layoutX="58.0" layoutY="91.0" onAction="#rentalReportOnAction" style="-fx-background-color: #212845;" text="Generate Report" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </JFXButton>
             </children>
         </AnchorPane>
+      <AnchorPane layoutX="457.0" layoutY="348.0" prefHeight="164.0" prefWidth="312.0" style="-fx-background-color: White;" styleClass="anchor-pane-2" stylesheets="@../styles/style.css">
+         <children>
+            <Label layoutX="79.0" layoutY="28.0" text="Returns Report" textFill="#212845">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="28.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="58.0" layoutY="91.0" onAction="#returnsReportOnAction" style="-fx-background-color: #212845;" text="Generate Report" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>
