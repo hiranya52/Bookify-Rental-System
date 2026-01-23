@@ -49,24 +49,12 @@ public class ReportsInfoController implements Initializable {
         try {
             // 1️⃣ Load data
             getAllRentals();
-
             // 2️⃣ Create datasource
-            JRBeanCollectionDataSource ds =
-                    new JRBeanCollectionDataSource(
-                            new ArrayList<>(rentalDTOS)
-                    );
-
+            JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(new ArrayList<>(rentalDTOS));
             // 3️⃣ Fill report
-            JasperPrint print =
-                    JasperFillManager.fillReport(
-                            rentalReport,
-                            new HashMap<>(),
-                            ds
-                    );
-
+            JasperPrint print = JasperFillManager.fillReport(rentalReport, new HashMap<>(), ds);
             // 4️⃣ Show report
             JasperViewer.viewReport(print, false);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
