@@ -21,6 +21,8 @@ import java.util.ResourceBundle;
 
 public class ReportsInfoController implements Initializable {
 
+    private JasperReport rentalReport;
+
     private RentalService rentalService = new RentalServiceImpl();
 
     private ObservableList<RentalDTO> rentalDTOS = FXCollections.observableArrayList();
@@ -44,16 +46,45 @@ public class ReportsInfoController implements Initializable {
     @FXML
     void rentalReportOnAction(ActionEvent event) {
 
+        try {
+            // 1️⃣ Load data
+            getAllRentals();
+
+            // 2️⃣ Create datasource
+            JRBeanCollectionDataSource ds =
+                    new JRBeanCollectionDataSource(
+                            new ArrayList<>(rentalDTOS)
+                    );
+
+            // 3️⃣ Fill report
+            JasperPrint print =
+                    JasperFillManager.fillReport(
+                            rentalReport,
+                            new HashMap<>(),
+                            ds
+                    );
+
+            // 4️⃣ Show report
+            JasperViewer.viewReport(print, false);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void returnsReportOnAction(ActionEvent event) {
-
+        // implement later
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
+        try {
+            rentalReport = JasperCompileManager.compileReport(
+                    getClass().getResourceAsStream("/reports/rentalReport.jrxml")
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
