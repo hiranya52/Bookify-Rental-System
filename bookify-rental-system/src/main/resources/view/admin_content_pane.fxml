@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="785.0" prefWidth="1160.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contoller.AdminContentPaneController">
+    <children>
+        <AnchorPane prefHeight="785.0" prefWidth="273.0" style="-fx-background-color: #212845;">
+            <children>
+                <ImageView fitHeight="64.0" fitWidth="70.0" layoutX="11.0" layoutY="50.0">
+                    <image>
+                        <Image url="@../img/Bookify%20Reental%20Logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="86.0" layoutY="72.0" text="Bookify Rental" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="34.0" />
+                    </font>
+                </Label>
+                <Label layoutX="101.0" layoutY="617.0" text="Administrator" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="100.0" layoutY="652.0" text="Admin" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="22.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="48.0" fitWidth="50.0" layoutX="41.0" layoutY="620.0">
+                    <image>
+                        <Image url="@../img/Profile.png" />
+                    </image>
+                </ImageView>
+                <JFXButton fx:id="btnReturns" alignment="BASELINE_LEFT" layoutY="400.0" onAction="#btnReturnsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Returns" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnReports" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="467.0" onAction="#btnReportsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Reports" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnRentals" alignment="BASELINE_LEFT" layoutY="334.0" onAction="#btnRentalsOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Rentals" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnCustomers" alignment="BASELINE_LEFT" layoutY="268.0" onAction="#btnCustomersOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Customers" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnBooks" alignment="BASELINE_LEFT" layoutY="202.0" onAction="#btnBooksOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Books" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnDashboard" alignment="BASELINE_LEFT" layoutY="136.0" onAction="#btnDashboardOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="   Dashboard" textFill="#e83c75">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="btnUserManagement" layoutY="533.0" onAction="#btnUserManagementOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="User Management" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton alignment="BASELINE_LEFT" layoutY="682.0" onAction="#btnLogOutOnAction" prefHeight="66.0" prefWidth="273.0" style="-fx-background-color: #212845;" text="    Log Out" textFill="WHITE">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="24.0" />
+                    </font>
+                </JFXButton>
+            </children>
+        </AnchorPane>
+      <AnchorPane fx:id="contentPane" layoutX="273.0" prefHeight="785.0" prefWidth="887.0" />
+    </children>
+</AnchorPane>

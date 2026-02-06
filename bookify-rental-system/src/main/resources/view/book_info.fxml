@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="785.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contoller.BookInfoController">
+    <children>
+        <Label layoutX="62.0" layoutY="71.0" text="Books" textFill="#212845">
+            <font>
+                <Font name="Apple LiGothic Medium" size="30.0" />
+            </font>
+        </Label>
+        <Label layoutX="754.0" layoutY="84.0" text="Home/Books" textFill="#212845">
+            <font>
+                <Font name="Apple LiGothic Medium" size="16.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="39.0" layoutY="118.0" prefHeight="600.0" prefWidth="518.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css" />
+        <AnchorPane layoutX="583.0" layoutY="119.0" prefHeight="600.0" prefWidth="266.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+            <children>
+                <Label layoutX="21.0" layoutY="41.0" text="Book Details" textFill="#212845">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="50.0" fitWidth="42.0" layoutX="198.0" layoutY="29.0">
+                    <image>
+                        <Image url="@../img/AddCustomer.jpg" />
+                    </image>
+                </ImageView>
+                <Label layoutX="24.0" layoutY="114.0" text="Book ID:" textFill="#212845">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="22.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblDate" layoutX="89.0" layoutY="84.0" text="2025-12-10" textFill="#212845">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="24.0" layoutY="80.0" text="Date : " textFill="#212845">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="22.0" />
+                    </font>
+                </Label>
+                <JFXTextField fx:id="txtTitle" layoutX="33.0" layoutY="184.0" prefHeight="30.0" prefWidth="200.0" promptText="     Title" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+                <JFXTextField fx:id="txtAuthor" layoutX="34.0" layoutY="237.0" prefHeight="30.0" prefWidth="200.0" promptText="     Author" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+                <JFXTextField fx:id="txtCategory" layoutX="34.0" layoutY="291.0" prefHeight="30.0" prefWidth="200.0" promptText="     Category" style="-fx-border-color: Black; -fx-border-width: 1; -fx-border-radius: 4;" unFocusColor="WHITE" />
+                <JFXButton layoutX="32.0" layoutY="450.0" onAction="#btnAddBookOnAction" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #212845;" text="Add Book" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <Label fx:id="lblBookID" layoutX="107.0" layoutY="117.0" text="B001" textFill="#2679ff">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="18.0" />
+                    </font>
+                </Label>
+            <Spinner fx:id="spnQty" layoutX="34.0" layoutY="345.0" prefHeight="30.0" prefWidth="200.0" style="-fx-border-width: 1; -fx-border-color: Black; -fx-border-radius: 4;" />
+            <JFXButton layoutX="34.0" layoutY="495.0" onAction="#btnUpdateBookOnAction" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #2679ff;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="136.0" layoutY="495.0" onAction="#btnDeleteBookOnAction" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #d00000;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="785.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="contoller.RentalInfoController">
+    <children>
+        <Label layoutX="62.0" layoutY="99.0" text="Rentals" textFill="#212845">
+            <font>
+                <Font name="Apple LiGothic Medium" size="30.0" />
+            </font>
+        </Label>
+        <Label layoutX="734.0" layoutY="111.0" text="Home/Rentals" textFill="#212845">
+            <font>
+                <Font name="Apple LiGothic Medium" size="16.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="38.0" layoutY="147.0" prefHeight="570.0" prefWidth="518.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+            <children>
+                <TableView fx:id="tblRentDetails" layoutX="14.0" layoutY="19.0" prefHeight="529.0" prefWidth="489.0" style="-fx-border-color: #212845; -fx-border-width: 2;">
+                    <columns>
+                        <TableColumn fx:id="colRentalID" prefWidth="81.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Rental ID" />
+                        <TableColumn fx:id="colBookID" prefWidth="81.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Book ID" />
+                        <TableColumn fx:id="colCusID" prefWidth="81.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Customer ID" />
+                        <TableColumn fx:id="colIssueDate" prefWidth="120.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Issue Date" />
+                  <TableColumn fx:id="colDueDate" prefWidth="120.0" style="-fx-border-color: #212845; -fx-border-width: 1;" text="Due Date" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="582.0" layoutY="148.0" prefHeight="570.0" prefWidth="266.0" style="-fx-background-color: White;" styleClass="anchor-pane" stylesheets="@../styles/style.css">
+            <children>
+                <Label layoutX="32.0" layoutY="69.0" text="Rental Details" textFill="#212845">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="28.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblDate" layoutX="96.0" layoutY="108.0" text="2025-12-10" textFill="#212845">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="33.0" layoutY="104.0" text="Date : " textFill="#212845">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="22.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblCusID" layoutX="133.0" layoutY="115.0" textFill="#2679ff">
+                    <font>
+                        <Font name="Apple LiGothic Medium" size="18.0" />
+                    </font>
+                </Label>
+            <JFXComboBox fx:id="cmbBookID" focusColor="#f5f5f5" layoutX="32.0" layoutY="211.0" prefWidth="200.0" promptText="     Book ID" style="-fx-border-width: 1; -fx-border-color: Black; -fx-border-radius: 4;" unFocusColor="WHITE" />
+            <JFXComboBox fx:id="cmbCustomerID" focusColor="WHITE" layoutX="33.0" layoutY="273.0" prefWidth="200.0" promptText="     Customer ID" style="-fx-border-color: Black; -fx-border-radius: 4; -fx-border-width: 1;" unFocusColor="WHITE" />
+            <JFXButton layoutX="36.0" layoutY="369.0" onAction="#btnRentOnAction" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: #212845;" text="Rent" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="38.0" layoutY="414.0" onAction="#btnUpdateRentalOnAction" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #2679ff;" text="Update" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="140.0" layoutY="414.0" onAction="#btnDeleteRentalOnAction" prefHeight="34.0" prefWidth="94.0" style="-fx-background-color: #d00000;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="lblRentID" layoutX="124.0" layoutY="140.0" text="R001" textFill="#2679ff">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="136.0" text="Rental ID : " textFill="#212845">
+               <font>
+                  <Font name="Apple LiGothic Medium" size="22.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="55.0" fitWidth="65.0" layoutX="180.0" layoutY="62.0">
+               <image>
+                  <Image url="@../img/AddBooks.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
